@@ -1,0 +1,42 @@
+default_install_hook_types: [pre-commit, commit-msg]
+repos:
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: fmt
+      - id: cargo-check
+      - id: clippy
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.26.0
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.31.2
+    hooks:
+      - id: typos
+        args: ["--force-exclude"]
+        stages: [pre-commit]
+      - id: typos
+        name: commit-msg-typos
+        stages: [commit-msg]
+  - repo: https://github.com/crate-ci/committed
+    rev: v1.1.7
+    hooks:
+      - id: committed
+  - repo: local
+    hooks:
+    - id: check-no-dbg
+      name: no dbg!
+      entry: bash -c 'rg --no-heading --line-number "dbg!" "$@" && echo "❌ dbg! found!" && exit 1 || exit 0'
+      language: system
+      files: \.rs$
