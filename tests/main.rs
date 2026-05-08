@@ -2,8 +2,6 @@
 use pretty_assertions::{assert_eq, assert_ne};
 
 use color_eyre::eyre::Result;
-#[allow(unused_imports)]
-use sinv::*;
 
 #[allow(clippy::missing_errors_doc)]
 pub fn setup() -> Result<()> {

@@ -13,40 +13,20 @@ documentation = "https://docs.rs/sinv"
 repository    = "https://github.com/aslowwriter/sinv"
 
 
-[lib]
-path = "src/lib.rs"
-
-
 [[bin]]
 path = "src/main.rs"
 name = "sinv"
 
 
 [dependencies]
-thiserror           = "2.0"
 tracing             = { version = "0", features = ["attributes"] }
 tracing-subscriber  = "0"
-tracing-error       = "0"
 clap                = { version = "4", features = ["derive", "unicode", "cargo"] }
 clap-verbosity-flag = { version = "3.0.4", features = ["tracing"] }
 
-tokio = { version = "1.52", features = [
-  "rt",
-  "rt-multi-thread",
-  "io-util",
-  "io-std",
-  "time",
-  "process",
-  "macros",
-  "fs",
-  "parking_lot",
-  "sync",
-] }
-tokio-stream = "0.1.18"
-
-
-serde = { version = "1", features = ["derive"] }
-
+sphinx_inv = { version = "0.3.0", path = "../sphinx_inv" }
+reqwest = { version = "0.13.3", features = ["blocking"] }
+color-eyre = "0.6.5"
 
 [dev-dependencies]
 pretty_assertions = "1.4.1"
