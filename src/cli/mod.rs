@@ -1,4 +1,5 @@
 mod lint;
+mod sink;
 mod source;
 mod suggest;
 mod write;
