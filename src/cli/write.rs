@@ -51,6 +51,17 @@ mod test {
         );
     }
     #[test]
+    fn verify_cli() {
+        use clap::CommandFactory;
+        CliArgs::command().debug_assert();
+    }
+
+    #[test]
+    fn test_args_write_url_as_sink() {
+        let args = CliArgs::try_parse_from(["sinv", "write", "foo", "https://example.org"]);
+        assert!(args.is_err());
+    }
+    #[test]
     fn test_args_write_json_mapping() {
         let args = CliArgs::parse_from(["sinv", "write", "--json-mapping", "foo.json"]);
         assert_eq!(

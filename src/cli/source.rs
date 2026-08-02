@@ -2,10 +2,13 @@ use std::io::{self};
 use std::path::PathBuf;
 use std::str::FromStr;
 
+use reqwest::Url;
+
 #[derive(Debug, Clone, PartialEq)]
 pub enum DataSource {
     Stdin,
     Path(PathBuf),
+    Url(Url),
 }
 
 #[derive(Debug, thiserror::Error)]
@@ -22,9 +25,12 @@ impl FromStr for DataSource {
     type Err = StdinError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        match s {
-            "-" => Ok(Self::Stdin),
-            s => Ok(Self::Path(PathBuf::from(s))),
+        if s == "-" {
+            Ok(Self::Stdin)
+        } else if let Ok(url) = reqwest::Url::parse(s) {
+            Ok(Self::Url(url))
+        } else {
+            Ok(Self::Path(PathBuf::from(s)))
         }
     }
 }

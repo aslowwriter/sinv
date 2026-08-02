@@ -20,6 +20,7 @@ mod test {
     use std::path::PathBuf;
 
     use clap::Parser;
+    use reqwest::Url;
 
     use crate::cli::{CliArgs, SubCommand, source::DataSource, suggest::SuggestArgs};
 
@@ -47,6 +48,23 @@ mod test {
             SubCommand::Suggest(SuggestArgs {
                 file: vec![DataSource::Path(PathBuf::from("foo")),],
                 search_term: Some(String::from("bar")),
+                threshold: None,
+                max_items: None
+            })
+        );
+    }
+    #[test]
+    fn test_args_suggest_file_url_and_stdin() {
+        let args = CliArgs::parse_from(["sinv", "suggest", "foo", "https://example.org", "-"]);
+        assert_eq!(
+            args.cmd,
+            SubCommand::Suggest(SuggestArgs {
+                file: vec![
+                    DataSource::Path(PathBuf::from("foo")),
+                    DataSource::Url(Url::parse("https://example.org").unwrap()),
+                    DataSource::Stdin,
+                ],
+                search_term: None,
                 threshold: None,
                 max_items: None
             })
