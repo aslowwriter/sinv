@@ -4,12 +4,18 @@ use crate::cli::{sink::DataSink, source::DataSource};
 
 #[derive(Debug, Clone, Args, PartialEq)]
 pub struct WriteArgs {
+    /// the source where the data will be read from, can be stdin, a file or a url.
     pub source: Option<DataSource>,
+    /// the destination where the data will be written to, can be stdout or a file.
     pub sink: Option<DataSink>,
 
+    /// instead of supplying a source sink pair, you can provide a mapping in json format, and
+    /// sinv will bulk process them. Supplying both a mapping and a source sink at the same time
+    /// is not supported
     #[arg(short, long, action, conflicts_with = "source")]
     pub json_mapping: Option<DataSource>,
 
+    /// overwrite any existing files at destination instead of erroring
     #[arg(short, long, action)]
     pub force: bool,
 }

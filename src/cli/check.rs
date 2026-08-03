@@ -3,7 +3,9 @@ use clap::Args;
 use crate::cli::source::DataSource;
 #[derive(Debug, Clone, Args, PartialEq)]
 pub struct CheckArgs {
-    pub files: Vec<DataSource>,
+    /// The sources to read the inventories from. These can be read from a file, a url, or from
+    /// stdin. (note that stdin is not allowed to be specified multiple times)
+    pub sources: Vec<DataSource>,
 }
 
 #[cfg(test)]
@@ -20,7 +22,7 @@ mod test {
         assert_eq!(
             args.cmd,
             SubCommand::Check(CheckArgs {
-                files: vec![DataSource::Path(PathBuf::from("foo"))]
+                sources: vec![DataSource::Path(PathBuf::from("foo"))]
             })
         );
     }
@@ -30,7 +32,7 @@ mod test {
         assert_eq!(
             args.cmd,
             SubCommand::Check(CheckArgs {
-                files: vec![DataSource::Path(PathBuf::from("foo")), DataSource::Stdin]
+                sources: vec![DataSource::Path(PathBuf::from("foo")), DataSource::Stdin]
             })
         );
     }
@@ -42,7 +44,7 @@ mod test {
         assert_eq!(
             args.cmd,
             SubCommand::Check(CheckArgs {
-                files: vec![
+                sources: vec![
                     DataSource::Stdin,
                     DataSource::Stdin,
                     DataSource::Path(PathBuf::from("bar")),
@@ -57,7 +59,7 @@ mod test {
         assert_eq!(
             args.cmd,
             SubCommand::Check(CheckArgs {
-                files: vec![
+                sources: vec![
                     DataSource::Path(PathBuf::from("foo")),
                     DataSource::Stdin,
                     DataSource::Path(PathBuf::from("bar")),
@@ -72,7 +74,7 @@ mod test {
         assert_eq!(
             args.cmd,
             SubCommand::Check(CheckArgs {
-                files: vec![
+                sources: vec![
                     DataSource::Path(PathBuf::from("foo")),
                     DataSource::Path(PathBuf::from("bar")),
                     DataSource::Path(PathBuf::from("baz"))
