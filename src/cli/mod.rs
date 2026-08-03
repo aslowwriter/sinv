@@ -1,13 +1,14 @@
-mod check;
-mod sink;
-mod source;
-mod suggest;
-mod write;
+pub(crate) mod check;
+pub(crate) mod sink;
+pub(crate) mod source;
+pub(crate) mod suggest;
+pub(crate) mod write;
 
 use clap::{Parser, Subcommand};
 use clap_verbosity_flag::{LogLevel, Verbosity, VerbosityFilter};
 
 use crate::cli::check::CheckArgs;
+use crate::cli::source::DataSource;
 use crate::cli::suggest::SuggestArgs;
 use crate::cli::write::WriteArgs;
 
@@ -51,4 +52,14 @@ pub enum SubCommand {
     Write(WriteArgs),
     Suggest(SuggestArgs),
     Check(CheckArgs),
+}
+
+impl SubCommand {
+    pub fn get_source(&self) -> DataSource {
+        match self {
+            SubCommand::Write(write_args) => write_args.source.clone().unwrap_or(DataSource::Stdin),
+            SubCommand::Suggest(suggest_args) => suggest_args.source.clone(),
+            SubCommand::Check(check_args) => check_args.source.clone(),
+        }
+    }
 }

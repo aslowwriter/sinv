@@ -1,10 +1,17 @@
+use sphinx_inv::{
+    PlainTextSphinxInventoryWriter, SphinxInvError, SphinxInventoryReader, SphinxReference,
+};
+use std::{fs::File, io::stdout};
 use tracing::subscriber::set_global_default;
 
 mod cli;
 mod error;
 mod url;
 
-use crate::{cli::CliArgs, error::SinvError};
+use crate::{
+    cli::{CliArgs, sink::DataSink},
+    error::SinvError,
+};
 use clap::Parser;
 
 fn main() -> Result<(), SinvError> {
@@ -15,6 +22,49 @@ fn main() -> Result<(), SinvError> {
         .finish();
 
     set_global_default(subscriber)?;
+
+    let reader = args.cmd.get_source().into_reader()?;
+    let inventory_reader = SphinxInventoryReader::from_reader(reader)?;
+    let header = inventory_reader.header().clone();
+    let references = inventory_reader
+        .collect::<Vec<Result<SphinxReference, SphinxInvError>>>()
+        .into_iter()
+        .filter_map(|r| match r {
+            Ok(reference) => Some(reference),
+            Err(e) => {
+                eprintln!("failed to parse line: {e}");
+                None
+            }
+        });
+
+    match args.cmd {
+        cli::SubCommand::Write(write_args) => {
+            let mut writer = PlainTextSphinxInventoryWriter::from_header(header, 0, true);
+            for reference in references {
+                writer.add_reference(reference);
+            }
+
+            let sink = write_args.sink.unwrap_or(DataSink::Stdout);
+            match sink {
+                DataSink::Stdout => {
+                    let stdout = stdout();
+                    let mut handler = stdout.lock();
+                    writer.finalize(&mut handler)?;
+                }
+                DataSink::Path(path_buf) => {
+                    if path_buf.exists() && !write_args.force {
+                        return Err(SinvError::FileExists(path_buf));
+                    }
+                    let mut f = File::create(path_buf)?;
+                    writer.finalize(&mut f)?;
+                }
+            }
+        }
+        cli::SubCommand::Suggest(_suggest_args) => {}
+        cli::SubCommand::Check(check_args) => {
+            println!("check: {check_args:?}");
+        }
+    }
 
     Ok(())
 }
