@@ -9,7 +9,7 @@ pub struct WriteArgs {
     pub source: Option<DataSource>,
     pub sink: Option<DataSink>,
 
-    #[arg(short, long, action)]
+    #[arg(short, long, action, conflicts_with = "source")]
     pub json_mapping: Option<PathBuf>,
 
     #[arg(short, long, action)]
@@ -59,6 +59,11 @@ mod test {
     #[test]
     fn test_args_write_url_as_sink() {
         let args = CliArgs::try_parse_from(["sinv", "write", "foo", "https://example.org"]);
+        assert!(args.is_err());
+    }
+    #[test]
+    fn test_args_write_json_mapping_incompatible_with_source() {
+        let args = CliArgs::try_parse_from(["sinv", "write", "--json-mapping", "foo.json", "foo"]);
         assert!(args.is_err());
     }
     #[test]
