@@ -1,5 +1,3 @@
-use std::path::PathBuf;
-
 use clap::Args;
 
 use crate::cli::{sink::DataSink, source::DataSource};
@@ -10,7 +8,7 @@ pub struct WriteArgs {
     pub sink: Option<DataSink>,
 
     #[arg(short, long, action, conflicts_with = "source")]
-    pub json_mapping: Option<PathBuf>,
+    pub json_mapping: Option<DataSource>,
 
     #[arg(short, long, action)]
     pub force: bool,
@@ -21,6 +19,7 @@ mod test {
     use std::path::PathBuf;
 
     use clap::Parser;
+    use reqwest::Url;
 
     use crate::cli::{CliArgs, SubCommand, sink::DataSink, source::DataSource, write::WriteArgs};
 
@@ -67,6 +66,27 @@ mod test {
         assert!(args.is_err());
     }
     #[test]
+    fn test_args_write_json_mapping_url() {
+        let args = CliArgs::parse_from([
+            "sinv",
+            "write",
+            "--json-mapping",
+            "https://exmaple.org/foo.json",
+        ]);
+        assert_eq!(
+            args.cmd,
+            SubCommand::Write(WriteArgs {
+                source: None,
+                sink: None,
+                #[allow(clippy::unwrap_used)]
+                json_mapping: Some(DataSource::Url(
+                    Url::parse("https://exmaple.org/foo.json").unwrap()
+                )),
+                force: false,
+            })
+        );
+    }
+    #[test]
     fn test_args_write_json_mapping() {
         let args = CliArgs::parse_from(["sinv", "write", "--json-mapping", "foo.json"]);
         assert_eq!(
@@ -74,7 +94,7 @@ mod test {
             SubCommand::Write(WriteArgs {
                 source: None,
                 sink: None,
-                json_mapping: Some(PathBuf::from("foo.json")),
+                json_mapping: Some(DataSource::Path(PathBuf::from("foo.json"))),
                 force: false,
             })
         );

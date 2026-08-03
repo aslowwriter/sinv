@@ -48,7 +48,6 @@ pub struct CliArgs {
 #[derive(Debug, Subcommand, Clone, PartialEq)]
 pub enum SubCommand {
     /// Write the data from the input file to the output file
-    /// f
     Write(WriteArgs),
     Suggest(SuggestArgs),
     Lint(LintArgs),
