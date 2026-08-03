@@ -19,7 +19,6 @@ mod test {
     use std::path::PathBuf;
 
     use clap::Parser;
-    use reqwest::Url;
 
     use crate::cli::{CliArgs, SubCommand, sink::DataSink, source::DataSource, write::WriteArgs};
 

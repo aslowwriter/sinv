@@ -2,6 +2,7 @@ use tracing::subscriber::set_global_default;
 
 mod cli;
 mod error;
+mod url;
 
 use crate::{cli::CliArgs, error::SinvError};
 use clap::Parser;
