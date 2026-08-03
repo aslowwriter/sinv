@@ -1,3 +1,4 @@
+use frizbee::{Config, Matcher};
 use sphinx_inv::{
     PlainTextSphinxInventoryWriter, SphinxInvError, SphinxInventoryReader, SphinxReference,
 };
@@ -26,7 +27,7 @@ fn main() -> Result<(), SinvError> {
     let reader = args.cmd.get_source().into_reader()?;
     let inventory_reader = SphinxInventoryReader::from_reader(reader)?;
     let header = inventory_reader.header().clone();
-    let references = inventory_reader
+    let references: Vec<_> = inventory_reader
         .collect::<Vec<Result<SphinxReference, SphinxInvError>>>()
         .into_iter()
         .filter_map(|r| match r {
@@ -35,7 +36,8 @@ fn main() -> Result<(), SinvError> {
                 eprintln!("failed to parse line: {e}");
                 None
             }
-        });
+        })
+        .collect();
 
     match args.cmd {
         cli::SubCommand::Write(write_args) => {
@@ -60,7 +62,30 @@ fn main() -> Result<(), SinvError> {
                 }
             }
         }
-        cli::SubCommand::Suggest(_suggest_args) => {}
+        cli::SubCommand::Suggest(suggest_args) => {
+            let names: Vec<_> = references.iter().map(|r| r.name.clone()).collect();
+            let matcher_config = Config::default().sort(frizbee::SortStrategy::ScoreThenIndexDesc);
+
+            let mut searcher = Matcher::new(suggest_args.search_term, &matcher_config);
+
+            let mut matches = searcher.match_list_parallel(&names, 8);
+
+            if let Some(thresh) = suggest_args.threshold {
+                matches.retain(|m| m.score >= thresh);
+            }
+
+            if let Some(max_items) = suggest_args.max_items {
+                matches = matches.into_iter().take(max_items).collect();
+            }
+
+            for m in matches {
+                // unwrap is allowed bc the searching should only index into the
+                // refenrenes so should always be some
+                #[allow(clippy::unwrap_used)]
+                let reference = references.get(m.index as usize).unwrap();
+                println!("{}:{}:{}", m.score, reference.name, reference.sphinx_type);
+            }
+        }
         cli::SubCommand::Check(check_args) => {
             println!("check: {check_args:?}");
         }

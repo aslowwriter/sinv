@@ -14,7 +14,7 @@ pub struct SuggestArgs {
 
     /// The minimum score needed to return a suggestion
     #[arg(short, long)]
-    pub threshold: Option<usize>,
+    pub threshold: Option<u16>,
 
     /// The maximum number of items to return, if unset, all will be returned.
     #[arg(short, long)]
