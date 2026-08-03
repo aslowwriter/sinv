@@ -1,4 +1,4 @@
-mod lint;
+mod check;
 mod sink;
 mod source;
 mod suggest;
@@ -7,7 +7,7 @@ mod write;
 use clap::{Parser, Subcommand};
 use clap_verbosity_flag::{LogLevel, Verbosity, VerbosityFilter};
 
-use crate::cli::lint::LintArgs;
+use crate::cli::check::CheckArgs;
 use crate::cli::suggest::SuggestArgs;
 use crate::cli::write::WriteArgs;
 
@@ -50,5 +50,5 @@ pub enum SubCommand {
     /// Write the data from the input file to the output file
     Write(WriteArgs),
     Suggest(SuggestArgs),
-    Lint(LintArgs),
+    Check(CheckArgs),
 }

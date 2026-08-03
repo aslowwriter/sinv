@@ -2,7 +2,7 @@ use clap::Args;
 
 use crate::cli::source::DataSource;
 #[derive(Debug, Clone, Args, PartialEq)]
-pub struct LintArgs {
+pub struct CheckArgs {
     pub files: Vec<DataSource>,
 }
 
@@ -12,24 +12,24 @@ mod test {
 
     use clap::Parser;
 
-    use crate::cli::{CliArgs, SubCommand, lint::LintArgs, source::DataSource};
+    use crate::cli::{CliArgs, SubCommand, check::CheckArgs, source::DataSource};
 
     #[test]
     fn test_args_lint_single_file() {
-        let args = CliArgs::parse_from(["sinv", "lint", "foo"]);
+        let args = CliArgs::parse_from(["sinv", "check", "foo"]);
         assert_eq!(
             args.cmd,
-            SubCommand::Lint(LintArgs {
+            SubCommand::Check(CheckArgs {
                 files: vec![DataSource::Path(PathBuf::from("foo"))]
             })
         );
     }
     #[test]
     fn test_args_lint_stdin() {
-        let args = CliArgs::parse_from(["sinv", "lint", "foo", "-"]);
+        let args = CliArgs::parse_from(["sinv", "check", "foo", "-"]);
         assert_eq!(
             args.cmd,
-            SubCommand::Lint(LintArgs {
+            SubCommand::Check(CheckArgs {
                 files: vec![DataSource::Path(PathBuf::from("foo")), DataSource::Stdin]
             })
         );
@@ -38,10 +38,10 @@ mod test {
     fn test_args_multiple_stdin() {
         // This is just the parsing, we dont' want to allow this
         // but we'll catch it during input validation
-        let args = CliArgs::parse_from(["sinv", "lint", "-", "-", "bar", "baz"]);
+        let args = CliArgs::parse_from(["sinv", "check", "-", "-", "bar", "baz"]);
         assert_eq!(
             args.cmd,
-            SubCommand::Lint(LintArgs {
+            SubCommand::Check(CheckArgs {
                 files: vec![
                     DataSource::Stdin,
                     DataSource::Stdin,
@@ -53,10 +53,10 @@ mod test {
     }
     #[test]
     fn test_args_mixing_files_and_stdin() {
-        let args = CliArgs::parse_from(["sinv", "lint", "foo", "-", "bar", "baz"]);
+        let args = CliArgs::parse_from(["sinv", "check", "foo", "-", "bar", "baz"]);
         assert_eq!(
             args.cmd,
-            SubCommand::Lint(LintArgs {
+            SubCommand::Check(CheckArgs {
                 files: vec![
                     DataSource::Path(PathBuf::from("foo")),
                     DataSource::Stdin,
@@ -68,10 +68,10 @@ mod test {
     }
     #[test]
     fn test_args_lint_multiple_files() {
-        let args = CliArgs::parse_from(["sinv", "lint", "foo", "bar", "baz"]);
+        let args = CliArgs::parse_from(["sinv", "check", "foo", "bar", "baz"]);
         assert_eq!(
             args.cmd,
-            SubCommand::Lint(LintArgs {
+            SubCommand::Check(CheckArgs {
                 files: vec![
                     DataSource::Path(PathBuf::from("foo")),
                     DataSource::Path(PathBuf::from("bar")),
