@@ -1,0 +1,1266 @@
+[
+  {
+    "url": "https://abrt.readthedocs.io/en/latest/testsuite.html#newinttest",
+    "name": "abrt"
+  },
+  {
+    "url": "https://aesara.readthedocs.io/en/latest/install.html",
+    "name": "aesara"
+  },
+  {
+    "url": "https://docs.aiohttp.org/en/stable/abc.html#abstract-class-based-views",
+    "name": "aiohttp"
+  },
+  {
+    "url": "https://alabaster.readthedocs.io/en/latest/installation.html",
+    "name": "alabaster"
+  },
+  {
+    "url": "https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html",
+    "name": "ansible"
+  },
+  {
+    "url": "https://docs.ansible.com/projects/molecule/getting-started-playbooks/",
+    "name": "ansible-molecule"
+  },
+  {
+    "url": "https://rogerbinns.github.io/apsw/ext.html",
+    "name": "apsw"
+  },
+  {
+    "url": "https://arblib.org/arb.html#c.arb_randtest",
+    "name": "arblib"
+  },
+  {
+    "url": "https://aria2.github.io/manual/en/html/aria2c.html#description",
+    "name": "aria2"
+  },
+  {
+    "url": "https://python.arviz.org/projects/plots/en/latest/gallery/plot_forest.html",
+    "name": "arviz"
+  },
+  {
+    "url": "https://ase-lib.org/ase/gui/gui.html",
+    "name": "ase"
+  },
+  {
+    "url": "https://docs.astropy.org/en/stable/time/index.html",
+    "name": "astropy"
+  },
+  {
+    "url": "https://asvin.readthedocs.io/en/latest/vc/version-controller-api-copy.html#register-device",
+    "name": "asvin"
+  },
+  {
+    "url": "https://autofac.readthedocs.io/en/latest/lifetime/index.html",
+    "name": "autofac"
+  },
+  {
+    "url": "https://docs.bigchaindb.com/en/latest/about-bigchaindb.html",
+    "name": "bigchaindb"
+  },
+  {
+    "url": "https://docs.blender.org/api/current/info_api_reference.html",
+    "name": "blender"
+  },
+  {
+    "url": "https://blinker.readthedocs.io/en/stable/#blinker.Signal.send_async",
+    "name": "blinker"
+  },
+  {
+    "url": "https://blocks.readthedocs.io/en/latest/api/main_loop.html#module-blocks.main_loop",
+    "name": "blocks"
+  },
+  {
+    "url": "https://docs.bokeh.org/en/latest/docs/user_guide/basic/lines.html#ug-basic-lines",
+    "name": "bokeh"
+  },
+  {
+    "url": "https://bootstrap-datepicker.readthedocs.io/en/latest/events.html",
+    "name": "bootstrap-datepicker"
+  },
+  {
+    "url": "https://docs.aws.amazon.com/boto3/latest/guide/sqs.html#sqs",
+    "name": "boto3"
+  },
+  {
+    "url": "https://breathe.readthedocs.io/en/latest/codeguide.html#how-it-works",
+    "name": "breathe"
+  },
+  {
+    "url": "https://www.breezy-vcs.org/doc/en/user-guide/introducing_breezy.html",
+    "name": "breezy"
+  },
+  {
+    "url": "https://bugzilla.readthedocs.io/en/latest/using/filing.html#reporting-a-new-bug",
+    "name": "bugzilla"
+  },
+  {
+    "url": "https://docs.buildbot.net/latest/manual/cmdline.html",
+    "name": "buildbot"
+  },
+  {
+    "url": "https://book.cakephp.org/5.x/core-libraries/caching.html#caching",
+    "name": "cakephp"
+  },
+  {
+    "url": "https://manual.calibre-ebook.com/conversion.html#page-setup",
+    "name": "calibre"
+  },
+  {
+    "url": "https://cartopy.readthedocs.io/stable/reference/projections.html#platecarree",
+    "name": "cartopy"
+  },
+  {
+    "url": "https://cassandra.apache.org/doc/4.0/cassandra/data_modeling/data_modeling_physical.html",
+    "name": "cassandra"
+  },
+  {
+    "url": "https://docs.celeryq.dev/projects/kombu/en/stable/introduction.html#installation",
+    "name": "celeryq"
+  },
+  {
+    "url": "https://docs.ceph.com/en/latest/rbd/",
+    "name": "ceph"
+  },
+  {
+    "url": "https://docs.enthought.com/chaco/",
+    "name": "chaco"
+  },
+  {
+    "url": "https://docs.chainer.org/en/stable/reference/generated/chainer.functions.clipped_relu.html#chainer.functions.clipped_relu",
+    "name": "chainer"
+  },
+  {
+    "url": "https://docs.chef.io/desktop/demonstration_setup/",
+    "name": "chef"
+  },
+  {
+    "url": "https://docs.cherrypy.dev/en/latest/config.html#global-config",
+    "name": "cherrypy"
+  },
+  {
+    "url": "https://docs.couchdb.org/en/stable/intro/tour.html#welcome-to-fauxton",
+    "name": "chouchdb"
+  },
+  {
+    "url": "https://citeproc-js.readthedocs.io/en/latest/running.html",
+    "name": "citeproc"
+  },
+  {
+    "url": "https://docs.ckan.org/en/2.11/sysadmin-guide.html",
+    "name": "ckan"
+  },
+  {
+    "url": "https://click.palletsprojects.com/en/stable/options/#multiple-options",
+    "name": "click"
+  },
+  {
+    "url": "https://docs.cloud-init.io/en/latest/reference/user_files.html",
+    "name": "cloud-init"
+  },
+  {
+    "url": "https://cmake.org/cmake/help/git-master/guide/user-interaction/index.html#command-line-environment",
+    "name": "cmake"
+  },
+  {
+    "url": "https://www.codeigniter.com/user_guide/incoming/message.html",
+    "name": "codeigniter"
+  },
+  {
+    "url": "https://docs.conda.io/projects/conda/en/latest/commands/config.html",
+    "name": "conda"
+  },
+  {
+    "url": "https://docs.confluent.io/platform/current/streams/overview.html?session_ref=direct&url_ref=https%3A%2F%2Fdocs.confluent.io%2F",
+    "name": "confluent"
+  },
+  {
+    "url": "https://doc.coreboot.org/payloads.html",
+    "name": "coreboot"
+  },
+  {
+    "url": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/#Comment",
+    "name": "crummy"
+  },
+  {
+    "url": "https://cryptography.io/en/latest/exceptions/#cryptography.exceptions.UnsupportedAlgorithm",
+    "name": "cryptography"
+  },
+  {
+    "url": "https://docs.cupy.dev/en/stable/install.html#installing-cupy",
+    "name": "cupy"
+  },
+  {
+    "url": "https://cython.readthedocs.io/en/latest/src/quickstart/install.html",
+    "name": "cython"
+  },
+  {
+    "url": "https://damask-multiphysics.org/documentation/how-to_guides/densityplot.html",
+    "name": "damask"
+  },
+  {
+    "url": "https://docs.dask.org/en/stable/generated/dask.dataframe.DataFrame.to_bag.html",
+    "name": "dask"
+  },
+  {
+    "url": "https://docs.databricks.com/aws/en/mlflow/end-to-end-example",
+    "name": "databricks"
+  },
+  {
+    "url": "https://doc.dataiku.com/dss/latest/code_recipes/python.html",
+    "name": "dataiku"
+  },
+  {
+    "url": "https://guides.dataverse.org/en/latest/admin/harvestclients.html",
+    "name": "dataverse"
+  },
+  {
+    "url": "https://deap.readthedocs.io/en/master/tutorials/basic/part2.html",
+    "name": "deap"
+  },
+  {
+    "url": "https://qa.pages.debian.net/distro-tracker/admin/installation.html#keyrings",
+    "name": "debian"
+  },
+  {
+    "url": "https://dj-stripe.dev/docs/dev/usage/add_payment_method_to_customer",
+    "name": "dj-stripe"
+  },
+  {
+    "url": "https://docs.djangoproject.com/en/6.0/intro/tutorial01/",
+    "name": "django"
+  },
+  {
+    "url": "https://docs.django-cms.org/en/stable/reference/configuration.html",
+    "name": "django-cms"
+  },
+  {
+    "url": "https://django-q.readthedocs.io/en/latest/tasks.html#synchronous-testing",
+    "name": "django-q"
+  },
+  {
+    "url": "https://djangocas.dev/docs/latest/cas-protocol-overview.html#web-flow-diagram",
+    "name": "djangocas"
+  },
+  {
+    "url": "https://dnf.readthedocs.io/en/latest/command_ref.html",
+    "name": "dnf"
+  },
+  {
+    "url": "https://e-cidadania.readthedocs.io/en/latest/reference/debate.html#debate-admin-administration",
+    "name": "e-cidadania"
+  },
+  {
+    "url": "https://docs.easybuild.io/common-toolchains/",
+    "name": "easybuild"
+  },
+  {
+    "url": "https://eclipsebook.in/introduction/eclipse-difference/#the-eclipse-foundation",
+    "name": "eclipsebook"
+  },
+  {
+    "url": "https://eff-certbot.readthedocs.io/en/stable/install.html#alternative-1-docker",
+    "name": "eff-certbot"
+  },
+  {
+    "url": "https://discovery.gitlabpages.inria.fr/enoslib/apidoc/global_api.html#module-enoslib",
+    "name": "enoslib"
+  },
+  {
+    "url": "https://docs.enthought.com/mayavi/tvtk/README.html#installation",
+    "name": "enthought"
+  },
+  {
+    "url": "https://eswp3.readthedocs.io/en/master/procedures.html",
+    "name": "eswp3"
+  },
+  {
+    "url": "https://exhale.readthedocs.io/en/latest/mastering_doxygen.html",
+    "name": "exhale"
+  },
+  {
+    "url": "https://docs.fabfile.org/en/latest/getting-started.html#transfer-files",
+    "name": "fabfile"
+  },
+  {
+    "url": "https://fairlearn.org/main/api_reference/index.html#module-fairlearn.datasets",
+    "name": "fairlearn"
+  },
+  {
+    "url": "https://faker.readthedocs.io/en/master/#localization",
+    "name": "faker"
+  },
+  {
+    "url": "https://feature-engine.trainindata.com/en/latest/#working-with-dataframes-feature-engine-is-a-no-brainer",
+    "name": "feature-engine"
+  },
+  {
+    "url": "https://fidimag.readthedocs.io/en/latest/user_guide/ipynb/ferromagnetic-resonance-stdprob.html",
+    "name": "fidimag"
+  },
+  {
+    "url": "https://fityk.nieto.pl/data.html#active-and-inactive-points",
+    "name": "fityk"
+  },
+  {
+    "url": "https://flake8.pycqa.org/en/latest/plugin-development/index.html",
+    "name": "flake8"
+  },
+  {
+    "url": "https://flask.palletsprojects.com/en/stable/api/#test-client",
+    "name": "flask"
+  },
+  {
+    "url": "https://pythonhosted.org/Flask-OpenID/",
+    "name": "flask-openid"
+  },
+  {
+    "url": "https://docs.flatpak.org/en/latest/flatpak-builder.html",
+    "name": "flatpak"
+  },
+  {
+    "url": "https://fluiddyn.readthedocs.io/en/latest/generated/fluiddyn.io.html",
+    "name": "fluiddyn"
+  },
+  {
+    "url": "https://fmt.dev/12.0/api/#compile-time-checks",
+    "name": "fmt"
+  },
+  {
+    "url": "https://doc.freefem.org/references/index.html",
+    "name": "freefrm"
+  },
+  {
+    "url": "https://freevo.github.io/kaa-base/core/timer.html",
+    "name": "freevo"
+  },
+  {
+    "url": "https://fluidsim.readthedocs.io/en/latest/ipynb/tuto_user.html#create-an-instance-of-the-class-parameters",
+    "name": "fuildsim"
+  },
+  {
+    "url": "https://pradyunsg.me/furo/reference/text-formatting/",
+    "name": "furo"
+  },
+  {
+    "url": "https://gallium.readthedocs.io/en/latest/faq.html",
+    "name": "gallium"
+  },
+  {
+    "url": "https://alfred.diamond.ac.uk/documentation/manuals/GDA_Developer_Guide/master/installation.html#application-requirements",
+    "name": "gda"
+  },
+  {
+    "url": "https://docs.generic-mapping-tools.org/latest/reference/map-projections.html#jc",
+    "name": "generic-mapping-tools"
+  },
+  {
+    "url": "https://noble.gs.washington.edu/proj/genomedata/doc/1.3.3/genomedata.html#genomedata-open-data",
+    "name": "genomedata-open-data"
+  },
+  {
+    "url": "https://radimrehurek.com/gensim/auto_examples/index.html#documentation",
+    "name": "gensim"
+  },
+  {
+    "url": "https://docs.geonode.org/en/latest/user-guide/datasets/upload/",
+    "name": "geonode"
+  },
+  {
+    "url": "https://docs.geoserver.org/main/en/user/gettingstarted/image-quickstart/",
+    "name": "geoserver"
+  },
+  {
+    "url": "https://getfem.org/python/pygf.html#py-gf-organization",
+    "name": "getfem"
+  },
+  {
+    "url": "https://docs.getpelican.com/en/latest/content.html",
+    "name": "getpelican"
+  },
+  {
+    "url": "https://www.gevent.org/api/gevent.greenlet.html",
+    "name": "gevent"
+  },
+  {
+    "url": "https://downloads.haskell.org/ghc/latest/docs/users_guide/9.14.1-notes.html#compiler",
+    "name": "ghc"
+  },
+  {
+    "url": "https://glances.readthedocs.io/en/develop/config.html",
+    "name": "glances"
+  },
+  {
+    "url": "https://go2docs.graylog.org/current/downloading_and_installing_graylog/installing_graylog.html#aanchor9",
+    "name": "go2docs"
+  },
+  {
+    "url": "https://docs.godotengine.org/en/stable/about/system_requirements.html",
+    "name": "godotengine"
+  },
+  {
+    "url": "https://gpaw.readthedocs.io/setups/setups.html",
+    "name": "gpaw"
+  },
+  {
+    "url": "https://manual.gromacs.org/documentation/2026.2/user-guide/index.html",
+    "name": "gromacs"
+  },
+  {
+    "url": "https://www.nongnu.org/gsl-shell/",
+    "name": "gsl-shell"
+  },
+  {
+    "url": "https://docs.guzzlephp.org/en/stable/",
+    "name": "guzzlephp"
+  },
+  {
+    "url": "https://docs.h5py.org/en/stable/high/lowlevel.html",
+    "name": "h5py"
+  },
+  {
+    "url": "https://handbook.selflanguage.org/2024.1/build.html#how-to-build-the-world",
+    "name": "handbook"
+  },
+  {
+    "url": "https://documen.tician.de/hedge/mesh.html#id1",
+    "name": "hedge"
+  },
+  {
+    "url": "https://hekad.readthedocs.io/en/v0.10.0/config/inputs/index.html",
+    "name": "hekad"
+  },
+  {
+    "url": "https://docs.mailman3.org/projects/hyperkitty/en/latest/install.html",
+    "name": "hyperkitty"
+  },
+  {
+    "url": "https://hyperledger-fabric.readthedocs.io/en/release-2.5/fabric_model.html",
+    "name": "hyperledger-fabric"
+  },
+  {
+    "url": "https://docs.idris-lang.org/en/latest/proofs/inductive.html",
+    "name": "idris"
+  },
+  {
+    "url": "https://inkscape-manuals.readthedocs.io/en/latest/installing-on-windows.html#identifying-your-system-architecture",
+    "name": "inkscape"
+  },
+  {
+    "url": "https://www.ixsystems.com/documentation/truenas/11.3-U5/tn_intro.html#tables-and-columns",
+    "name": "ixsystems"
+  },
+  {
+    "url": "https://bronto-javasphinx.readthedocs.io/en/latest/#javasphinx-apidoc",
+    "name": "javasphinx"
+  },
+  {
+    "url": "https://jinja.palletsprojects.com/en/stable/api/#autoescaping",
+    "name": "jinja"
+  },
+  {
+    "url": "https://docs.jupyter.org/en/latest/projects/kernels.html",
+    "name": "jupyter"
+  },
+  {
+    "url": "https://jupyter-book.readthedocs.io/v1/content/content-blocks.html",
+    "name": "jupyter-book"
+  },
+  {
+    "url": "https://jupyterhub.readthedocs.io/en/stable/",
+    "name": "jupyterhub"
+  },
+  {
+    "url": "https://jython.readthedocs.io/en/latest/DataTypes/",
+    "name": "jython"
+  },
+  {
+    "url": "https://docs.kanboard.org/v1/user/keyboard-shortcuts/",
+    "name": "kanboard"
+  },
+  {
+    "url": "https://www.kernel.org/doc/html/latest/process/index.html",
+    "name": "kernel"
+  },
+  {
+    "url": "https://lasagne.readthedocs.io/en/latest/modules/updates.html#update-modification-functions",
+    "name": "lasagne"
+  },
+  {
+    "url": "https://lassoguide.com/api/lcapi-methods.html#basic-custom-method-function",
+    "name": "lassoguide"
+  },
+  {
+    "url": "https://latexindentpl.readthedocs.io/en/latest/sec-introduction.html#ubuntu-linux-users-without-perl",
+    "name": "latexidentpl"
+  },
+  {
+    "url": "https://runawayhorse001.github.io/LearningApacheSpark/rdd.html",
+    "name": "learning-apache-spark"
+  },
+  {
+    "url": "https://leo-editor.github.io/leo-editor/running.html#running-leo-in-batch-mode",
+    "name": "leo-editor"
+  },
+  {
+    "url": "https://libceed.org/en/latest/api/",
+    "name": "libceed"
+  },
+  {
+    "url": "https://linguistica.readthedocs.io/stable/data.html",
+    "name": "linguistica"
+  },
+  {
+    "url": "https://www.lino-framework.org/framework.html#lino-is-invisible-to-end-users",
+    "name": "lino"
+  },
+  {
+    "url": "https://llvm.org/docs/FAQ.html#in-what-language-is-llvm-written",
+    "name": "llvm"
+  },
+  {
+    "url": "https://lmod.readthedocs.io/en/latest/#lmod-web-sites",
+    "name": "lmod"
+  },
+  {
+    "url": "https://docs.mailman3.org/en/latest/install/install.html",
+    "name": "mailman3"
+  },
+  {
+    "url": "https://docs.makotemplates.org/en/latest/usage.html#using-templatelookup",
+    "name": "makotemplates"
+  },
+  {
+    "url": "https://mapserver.org/introduction.html#installation-and-requirements",
+    "name": "mapserver"
+  },
+  {
+    "url": "https://docs.mathjax.org/en/latest/basic/accessibility.html",
+    "name": "mathjax"
+  },
+  {
+    "url": "https://matplotlib.org/stable/users/explain/quick_start.html#types-of-inputs-to-plotting-functions",
+    "name": "matplotlib"
+  },
+  {
+    "url": "https://www.mdtraj.org/1.9.8.dev0/load_functions.html",
+    "name": "mdtraj"
+  },
+  {
+    "url": "https://docs.mediagoblin.org/en/stable/plugindocs/ldap.html",
+    "name": "mediagoblin"
+  },
+  {
+    "url": "https://docs.mesa3d.org/amber.html",
+    "name": "mesa3d"
+  },
+  {
+    "url": "https://documen.tician.de/meshpy/geometry.html",
+    "name": "meshpy"
+  },
+  {
+    "url": "https://micca.readthedocs.io/en/latest/phyloseq.html",
+    "name": "micca"
+  },
+  {
+    "url": "https://micro-framework.readthedocs.io/en/latest/createproject.html",
+    "name": "micro-framework"
+  },
+  {
+    "url": "https://docs.micropython.org/en/latest/esp32/quickref.html",
+    "name": "microphython"
+  },
+  {
+    "url": "https://mink.behat.org/en/latest/guides/manipulating-pages.html",
+    "name": "mink"
+  },
+  {
+    "url": "https://mirrorbrain-docs.readthedocs.io/en/latest/mirrors.html",
+    "name": "mirrorbrain"
+  },
+  {
+    "url": "https://mitiq.readthedocs.io/en/stable/#calibration",
+    "name": "mitiq"
+  },
+  {
+    "url": "https://mne.tools/stable/auto_tutorials/index.html",
+    "name": "mne"
+  },
+  {
+    "url": "https://docs.mockery.io/en/latest/reference/expectations.html",
+    "name": "mockery"
+  },
+  {
+    "url": "https://modwsgi.readthedocs.io/en/master/user-guides/installation-on-macosx.html",
+    "name": "modwsgi"
+  },
+  {
+    "url": "https://moin-20.readthedocs.io/en/latest/user/accounts.html",
+    "name": "moin-20"
+  },
+  {
+    "url": "https://momotor.org/doc/lti/canvas/setup/index.html#authorising-the-momotor-app",
+    "name": "momotor"
+  },
+  {
+    "url": "https://www.mongodb.com/docs/mongodb-shell/connect/",
+    "name": "mongodb"
+  },
+  {
+    "url": "https://docs.mopidy.com/stable/installation/manual/",
+    "name": "mopidy"
+  },
+  {
+    "url": "https://mpastell.com/pweave/formats.html",
+    "name": "mpastell"
+  },
+  {
+    "url": "https://mpi4py.readthedocs.io/en/stable/tutorial.html",
+    "name": "mpi4py"
+  },
+  {
+    "url": "https://vmlaker.github.io/mpipe/",
+    "name": "mpipe"
+  },
+  {
+    "url": "https://mpmath.org/doc/current/setup.html#using-gmpy-optional",
+    "name": "mpmath"
+  },
+  {
+    "url": "https://mybinder.readthedocs.io/en/latest/using/using.html",
+    "name": "mybinder"
+  },
+  {
+    "url": "https://docs.myhdl.org/en/stable/manual/intro.html",
+    "name": "myhdl"
+  },
+  {
+    "url": "https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html",
+    "name": "mypy"
+  },
+  {
+    "url": "https://ndnsim.net/current/intro.html",
+    "name": "ndnsim"
+  },
+  {
+    "url": "https://docs.netgate.com/tnsr/en/latest/platforms/",
+    "name": "netgate"
+  },
+  {
+    "url": "https://networkx.org/documentation/stable/tutorial.html",
+    "name": "networkx"
+  },
+  {
+    "url": "https://docs.nextcloud.com/server/latest/user_manual/en/groupware/contacts.html",
+    "name": "nextcloud"
+  },
+  {
+    "url": "https://nghttp2.org/documentation/tutorial-client.html",
+    "name": "nghttp2"
+  },
+  {
+    "url": "https://forge.frm2.tum.de/nicos/doc/nicos-master/userscripts/",
+    "name": "nicos"
+  },
+  {
+    "url": "https://nlpy.sourceforge.net",
+    "name": "nlpy"
+  },
+  {
+    "url": "https://www.nltk.org/api/nltk.app.chunkparser_app.html#module-nltk.app.chunkparser_app",
+    "name": "nltk"
+  },
+  {
+    "url": "https://nose.readthedocs.io/en/latest/",
+    "name": "nose"
+  },
+  {
+    "url": "https://numpy.org/doc/stable/reference/array_api.html",
+    "name": "numpy"
+  },
+  {
+    "url": "https://objectlistview.sourceforge.net/python/gettingStarted.html",
+    "name": "objectlistview"
+  },
+  {
+    "url": "https://docs.obspy.org/coding_style.html",
+    "name": "obspy"
+  },
+  {
+    "url": "https://www.odoo.com/documentation/19.0/applications/websites/website/configuration/domain_names.html",
+    "name": "odoo"
+  },
+  {
+    "url": "https://docs.opencv.org/5.0/main_modules/core_array.html",
+    "name": "opencv"
+  },
+  {
+    "url": "https://opendylan.org/community/index.html",
+    "name": "opendylan"
+  },
+  {
+    "url": "https://openfast.readthedocs.io/en/main/source/working.html",
+    "name": "openfast"
+  },
+  {
+    "url": "https://openturns.github.io/openturns/latest/usecases/use_case_logistic.html",
+    "name": "openturns"
+  },
+  {
+    "url": "https://docs.openvswitch.org/en/latest/internals/release-process/",
+    "name": "openvswitch"
+  },
+  {
+    "url": "https://opnfvdocsdemo.readthedocs.io/en/latest/how-to-use-docs/include-documentation.html#in-your-project-repository",
+    "name": "opnfvdocsdemo"
+  },
+  {
+    "url": "https://packaging.python.org/en/latest/guides/dropping-older-python-versions/",
+    "name": "packaging-tools"
+  },
+  {
+    "url": "https://pageperso.lis-lab.fr/~edouard.thiel/ez-draw/doc/en/html/ez-tutorial.html#compilation",
+    "name": "pageperso"
+  },
+  {
+    "url": "https://docs.pagure.org/copr.copr/user_documentation.html#build-source-types",
+    "name": "pagure"
+  },
+  {
+    "url": "https://docs.panda3d.org/1.10/python/debugging/log-messages",
+    "name": "panda3d"
+  },
+  {
+    "url": "https://pandas.pydata.org/docs/user_guide/copy_on_write.html",
+    "name": "pandas"
+  },
+  {
+    "url": "https://docs.peewee-orm.com/en/latest/peewee/database.html#executing-sql",
+    "name": "peewee-orm"
+  },
+  {
+    "url": "https://phasefieldx.readthedocs.io/en/latest/api/Boundary/main.html",
+    "name": "phasefieldx"
+  },
+  {
+    "url": "https://docs.phpdoc.org/guide/guides/docblocks.html#more-on-docblocks",
+    "name": "phpdoc"
+  },
+  {
+    "url": "https://docs.phpunit.de/en/13.2/installation.html#installing-the-php-command-line-interpreter",
+    "name": "phpunit"
+  },
+  {
+    "url": "https://phpword.readthedocs.io/en/latest/intro.html#file-formats",
+    "name": "phpword"
+  },
+  {
+    "url": "https://picamera.readthedocs.io/en/release-1.13/recipes1.html",
+    "name": "picamera"
+  },
+  {
+    "url": "https://pillow.readthedocs.io/en/stable/handbook/overview.html",
+    "name": "pillow"
+  },
+  {
+    "url": "https://docs.platformio.org/en/latest/plus/pio-remote.html#pioremote",
+    "name": "platformio"
+  },
+  {
+    "url": "https://6.docs.plone.org/volto/theming/about-semantic.html",
+    "name": "plone"
+  },
+  {
+    "url": "https://docs.podman.io/en/latest/markdown/podman-attach.1.html",
+    "name": "podman"
+  },
+  {
+    "url": "https://pros.cs.purdue.edu/v5/contact.html",
+    "name": "pros"
+  },
+  {
+    "url": "https://psicode.org/psi4manual/master/capabilities.html#table-managedmethods",
+    "name": "psicode"
+  },
+  {
+    "url": "https://www.psycopg.org/docs/install.html#quick-install",
+    "name": "psycopg"
+  },
+  {
+    "url": "https://docs.pycantonese.org/stable/reader.html",
+    "name": "pycantonese"
+  },
+  {
+    "url": "https://documen.tician.de/pycuda/driver.html",
+    "name": "pycuda"
+  },
+  {
+    "url": "https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/index.html",
+    "name": "pydata-sphinx-theme"
+  },
+  {
+    "url": "https://pyemd.readthedocs.io/en/latest/speedup.html#change-data-type",
+    "name": "pyemd"
+  },
+  {
+    "url": "https://rhodesmill.org/pyephem/quick.html",
+    "name": "pyephem"
+  },
+  {
+    "url": "https://pyevolve.sourceforge.net/getstarted.html#the-interactive-mode",
+    "name": "pyevolve"
+  },
+  {
+    "url": "https://www.pygame.org/docs/ref/cursors.html",
+    "name": "pygame"
+  },
+  {
+    "url": "https://pyglet.readthedocs.io/en/latest/programming_guide/windowing.html",
+    "name": "pyglet"
+  },
+  {
+    "url": "https://pygments.org/docs/lexers/",
+    "name": "pygments"
+  },
+  {
+    "url": "https://docs.pyinvoke.org/en/stable/concepts/loading.html",
+    "name": "pyinvoke"
+  },
+  {
+    "url": "https://docs.pylangacq.org/stable/headers.html",
+    "name": "pylagacq"
+  },
+  {
+    "url": "https://docs.pylonsproject.org/projects/pylons-webframework/en/latest/gettingstarted.html#installing",
+    "name": "pylonsproject"
+  },
+  {
+    "url": "https://docs.pylonsproject.org/projects/substanced/en/latest/services.html",
+    "name": "pylonsproject"
+  },
+  {
+    "url": "https://pynacl.readthedocs.io/en/latest/password_hashing/",
+    "name": "pynacl"
+  },
+  {
+    "url": "https://documen.tician.de/pyopencl/runtime_platform.html",
+    "name": "pyopencl"
+  },
+  {
+    "url": "https://www.pyopenssl.org/en/latest/introduction.html#development",
+    "name": "pyopenssl"
+  },
+  {
+    "url": "https://pip.pypa.io/en/stable/user_guide/",
+    "name": "pypa"
+  },
+  {
+    "url": "https://www.pypa.io/en/latest/help/",
+    "name": "pypa"
+  },
+  {
+    "url": "https://pypubsub.readthedocs.io/en/v4.0.3/",
+    "name": "pypubsub"
+  },
+  {
+    "url": "https://doc.pypy.org/build.html",
+    "name": "pypy"
+  },
+  {
+    "url": "https://www.riverbankcomputing.com/static/Docs/PyQt4/incompatibilities.html#pyqt4-v4-8-3",
+    "name": "pyqt4"
+  },
+  {
+    "url": "https://www.riverbankcomputing.com/static/Docs/PyQt5/incompatibilities.html#pyqt-v5-6",
+    "name": "pyqt5"
+  },
+  {
+    "url": "https://pyre.readthedocs.io/en/latest/",
+    "name": "pyre"
+  },
+  {
+    "url": "https://pystra.github.io/pystra/api.html",
+    "name": "pystra"
+  },
+  {
+    "url": "https://tango-controls.readthedocs.io/projects/pytango/en/latest/how-to/multiprocessing.html",
+    "name": "pytango"
+  },
+  {
+    "url": "https://docs.pytest.org/en/stable/reference/fixtures.html",
+    "name": "pytest"
+  },
+  {
+    "url": "https://docs.python.org/3/reference/lexical_analysis.html#line-structure",
+    "name": "python"
+  },
+  {
+    "url": "https://apt-team.pages.debian.net/python-apt/library/apt.cache.html",
+    "name": "python-apt"
+  },
+  {
+    "url": "https://api.arcade.academy/en/stable/programming_guide/textures.html#texture-uniqueness",
+    "name": "python-arcade"
+  },
+  {
+    "url": "https://python-aspectlib.readthedocs.io/en/latest/installation.html",
+    "name": "python-aspectlib"
+  },
+  {
+    "url": "https://devguide.python.org",
+    "name": "python-devguide"
+  },
+  {
+    "url": "https://docs.python-eve.org/en/stable/features.html",
+    "name": "python-eve"
+  },
+  {
+    "url": "https://pythonhosted.org/director/examples.html#defining-help-text",
+    "name": "pythonhosted"
+  },
+  {
+    "url": "https://vmlaker.github.io/pythonwildmagic/",
+    "name": "pythonwildmagic"
+  },
+  {
+    "url": "https://documen.tician.de/pyublas/",
+    "name": "pyublas"
+  },
+  {
+    "url": "https://documen.tician.de/pyvisfile/vtk.html#convenience-functions",
+    "name": "pyvisfile"
+  },
+  {
+    "url": "https://docs.pyvista.org/user-guide/simple",
+    "name": "pyvista"
+  },
+  {
+    "url": "https://pyvisa.readthedocs.io/en/latest/advanced/index.html",
+    "name": "pyvista"
+  },
+  {
+    "url": "https://pywavelets.readthedocs.io/en/latest/regression/index.html",
+    "name": "pywavelets"
+  },
+  {
+    "url": "https://qgis.org/resources/testing/",
+    "name": "qgis"
+  },
+  {
+    "url": "https://docs.qtile.org/en/stable/manual/ref/layouts.html",
+    "name": "qtile"
+  },
+  {
+    "url": "https://quex.sourceforge.net/doc/html/03-regular-expressions/01-elementary-re.html#single-character-transition-dfas",
+    "name": "quex"
+  },
+  {
+    "url": "https://qutip.readthedocs.io/en/latest/guide/guide-basics.html#functions-operating-on-qobj-class",
+    "name": "qutip"
+  },
+  {
+    "url": "https://docs.r3.com/en/about-the-docs.html#cluster-administrator",
+    "name": "r3"
+  },
+  {
+    "url": "https://www.rdkit.org/docs/RDKit_Book.html",
+    "name": "rdkit"
+  },
+  {
+    "url": "https://docs.readthedocs.com/platform/stable/config-file/v2.html",
+    "name": "readthedocs"
+  },
+  {
+    "url": "https://releases.readthedocs.io/en/latest/concepts.html",
+    "name": "readthedocs"
+  },
+  {
+    "url": "https://renderdoc.org/docs/behind_scenes/opengl_support.html#capture-requirements",
+    "name": "renderdoc"
+  },
+  {
+    "url": "https://requests.readthedocs.io/en/latest/api/",
+    "name": "requests"
+  },
+  {
+    "url": "https://www.reteisi.org/install/contents.html",
+    "name": "reteisi"
+  },
+  {
+    "url": "https://ring-lang.github.io/doc1.20/ringapps.html#fifteen-puzzle-game",
+    "name": "ring-lang"
+  },
+  {
+    "url": "https://www.roundup-tracker.org",
+    "name": "roundup-tracker"
+  },
+  {
+    "url": "https://rxdock.gitlab.io/documentation/devel/html/reference-guide/configuration.html",
+    "name": "rxdock"
+  },
+  {
+    "url": "https://doc.sagemath.org/html/en/reference/groups/sage/groups/group.html",
+    "name": "sagemath"
+  },
+  {
+    "url": "https://docs.saltproject.io/en/latest/topics/about_salt_project.html#technical-support",
+    "name": "saltproject"
+  },
+  {
+    "url": "https://sawtooth.splinter.dev/docs/1.2/app_developers_guide/installing_sawtooth.html",
+    "name": "sawtooth"
+  },
+  {
+    "url": "https://scapy.readthedocs.io/en/latest/advanced_usage/automaton.html",
+    "name": "scapy"
+  },
+  {
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html",
+    "name": "scikit-learn"
+  },
+  {
+    "url": "https://scipy.github.io/devdocs/dev/conduct/code_of_conduct.html",
+    "name": "scipy"
+  },
+  {
+    "url": "https://docs.scrapy.org/en/latest/topics/items.html#dataclass-items",
+    "name": "scrapy"
+  },
+  {
+    "url": "https://seaborn.pydata.org/generated/seaborn.objects.Lines.html",
+    "name": "seaborn"
+  },
+  {
+    "url": "https://searx.github.io/searx/dev/search_api.html#parameters",
+    "name": "searx"
+  },
+  {
+    "url": "https://noble.gs.washington.edu/proj/segway/doc/1.1.0/segway.html#running-segway",
+    "name": "segway"
+  },
+  {
+    "url": "https://docs.sepal.io/en/latest/modules/dwn/bfast_explorer.html",
+    "name": "sepal"
+  },
+  {
+    "url": "https://docs.seqera.io/nextflow/developer-env",
+    "name": "seqera"
+  },
+  {
+    "url": "https://setuptools.pypa.io/en/latest/userguide/interfaces.html",
+    "name": "setuptools"
+  },
+  {
+    "url": "https://simgrid.org/doc/latest/Installing_SimGrid.html",
+    "name": "simgrid"
+  },
+  {
+    "url": "https://simpy.readthedocs.io/en/latest/examples/index.html#monitoring",
+    "name": "simpy"
+  },
+  {
+    "url": "https://bopeng.github.io/simuPOP/userGuide_ch3_sec1.html#empty-all-avail-and-dynamic-values-for-parameters-loci-reps-ancgen-and-subpops",
+    "name": "simupop"
+  },
+  {
+    "url": "https://sphinx-argparse.readthedocs.io/en/latest/misc.html",
+    "name": "sphinx-argsparse"
+  },
+  {
+    "url": "https://sphinx-autoapi.readthedocs.io/en/latest/how_to.html",
+    "name": "sphinx-autoapi"
+  },
+  {
+    "url": "https://ryan-roemer.github.io/sphinx-bootstrap-theme/README.html#customization",
+    "name": "sphinx-bootstrap-theme"
+  },
+  {
+    "url": "https://www.sphinx-doc.org/en/master/usage/installation.html",
+    "name": "sphinx-doc"
+  },
+  {
+    "url": "https://sphinx-gallery.github.io/stable/getting_started.html",
+    "name": "sphinx-gallery"
+  },
+  {
+    "url": "https://sphinx-rtd-theme.readthedocs.io/en/stable/installing.html",
+    "name": "sphinx-rtd-theme"
+  },
+  {
+    "url": "https://sphinx-tabs.readthedocs.io/en/latest/",
+    "name": "sphinx-tabs"
+  },
+  {
+    "url": "https://runawayhorse001.github.io/SphinxGithub/sphinx.html",
+    "name": "sphinxgithub"
+  },
+  {
+    "url": "https://spotbugs.readthedocs.io/en/stable/gui.html",
+    "name": "spotbugs"
+  },
+  {
+    "url": "https://docs.spring.io/spring-python/1.2.x/sphinx/html/overview.html#installation",
+    "name": "spring"
+  },
+  {
+    "url": "https://docs.spyder-ide.org/current/faq.html",
+    "name": "spyder"
+  },
+  {
+    "url": "https://alembic.sqlalchemy.org/en/latest/tutorial.html#running-our-first-migration",
+    "name": "sqlalchemy"
+  },
+  {
+    "url": "https://docs.sqlalchemy.org/en/20/tutorial/data.html",
+    "name": "sqlalchemy"
+  },
+  {
+    "url": "https://sqlparse.readthedocs.io/en/latest/analyzing.html",
+    "name": "sqlparse"
+  },
+  {
+    "url": "https://docs.staruml.io/user-guide/managing-project",
+    "name": "staruml"
+  },
+  {
+    "url": "https://www.statsmodels.org/stable/user-guide.html",
+    "name": "statsmodels"
+  },
+  {
+    "url": "https://docs.sulu.io/3.x/reference/index.html",
+    "name": "sulu"
+  },
+  {
+    "url": "https://docs.sunpy.org/en/stable/topic_guide/custom_map_rotate.html",
+    "name": "sunpy"
+  },
+  {
+    "url": "https://sylli.sourceforge.net/install.html#usage",
+    "name": "sylli"
+  },
+  {
+    "url": "https://docs.sympy.org/latest/guides/custom-functions.html",
+    "name": "sympy"
+  },
+  {
+    "url": "https://docs.syncthing.net/dev/web.html",
+    "name": "syncthing"
+  },
+  {
+    "url": "http://docs.python-tablib.org/en/master/api/#tablib.Dataset",
+    "name": "tablib"
+  },
+  {
+    "url": "https://tango-controls.readthedocs.io/en/latest/Tutorials/atkpanel/atkpanel.html",
+    "name": "tango"
+  },
+  {
+    "url": "https://docs.threatconnect.com/en/latest/python/python_sdk.html",
+    "name": "threatconnect"
+  },
+  {
+    "url": "https://documen.tician.de/codepy/",
+    "name": "tician"
+  },
+  {
+    "url": "https://tinytim.sourceforge.net/docs/2.0/mio/xtm-import.html",
+    "name": "tinytim"
+  },
+  {
+    "url": "https://docs.translatehouse.org/projects/translate-toolkit/en/latest/formats/po.html#po",
+    "name": "translatehouse"
+  },
+  {
+    "url": "https://turbogears.readthedocs.io/en/latest/turbogears/minimal/index.html#serving-multiple-pages",
+    "name": "tubogears"
+  },
+  {
+    "url": "https://docs.tuleap.com/user-guide/user/preferences.html#keys-tokens",
+    "name": "tuleap"
+  },
+  {
+    "url": "https://docs.twisted.org/en/stable/core/howto/index.html",
+    "name": "twisted"
+  },
+  {
+    "url": "https://docs.typo3.org/m/typo3/tutorial-getting-started/14.3/en-us/Quickstart/Index.html#adding-content-to-your-website",
+    "name": "typo3"
+  },
+  {
+    "url": "https://documentation.ubuntu.com/project/contributors/bug-triage/bug-status/",
+    "name": "ubuntu"
+  },
+  {
+    "url": "https://urllib3.readthedocs.io/en/stable/advanced-usage.html",
+    "name": "urllib3"
+  },
+  {
+    "url": "https://uwsgi-docs.readthedocs.io/en/latest/Namespaces.html",
+    "name": "uwsig"
+  },
+  {
+    "url": "https://www.varnish.org/docs/install-guide/install-docker/",
+    "name": "varnish"
+  },
+  {
+    "url": "https://docs.veyon.io/en/latest/user/introduction.html#status-bar",
+    "name": "veyon"
+  },
+  {
+    "url": "https://virtualenv.pypa.io/en/latest/how-to/usage.html",
+    "name": "virtualenv"
+  },
+  {
+    "url": "https://docs.w3af.org/en/latest/authentication.html",
+    "name": "w3af"
+  },
+  {
+    "url": "https://waf.io/apidocs/tools.html",
+    "name": "waf"
+  },
+  {
+    "url": "https://docs.wagtail.org/en/stable/topics/writing_templates.html",
+    "name": "wagtail"
+  },
+  {
+    "url": "https://docs.weblate.org/en/latest/user/translating.html",
+    "name": "weblate"
+  },
+  {
+    "url": "https://werkzeug.palletsprojects.com/en/stable/serving/#colored-logging",
+    "name": "werkzeug"
+  },
+  {
+    "url": "https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/#what-to-include-in-software-documentation",
+    "name": "writethedocs"
+  },
+  {
+    "url": "https://wtforms.readthedocs.io/en/3.2.x/fields/#the-field-base-class",
+    "name": "wtforms"
+  },
+  {
+    "url": "https://wxpython.org/Phoenix/docs/html/wx.dataview.1moduleindex.html",
+    "name": "wxpython"
+  },
+  {
+    "url": "https://x265.readthedocs.io/en/master/cli.html#profile-level-tier",
+    "name": "x265"
+  },
+  {
+    "url": "https://pythonhosted.org/zc.async/1.5.0/README_1.html#jobs",
+    "name": "zc-async"
+  },
+  {
+    "url": "https://docs.zeek.org/en/current/tutorial/using-packages.html",
+    "name": "zeek"
+  },
+  {
+    "url": "https://www.zope.dev/resources.html",
+    "name": "zope"
+  },
+  {
+    "url": "https://zulip.readthedocs.io/en/latest/contributing/index.html",
+    "name": "zulip"
+  }
+]
