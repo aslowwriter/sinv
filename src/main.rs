@@ -101,9 +101,6 @@ fn main() -> Result<(), SinvError> {
                 }
             }
         }
-        cli::SubCommand::Check(check_args) => {
-            println!("check: {check_args:?}");
-        }
     }
 
     Ok(())
