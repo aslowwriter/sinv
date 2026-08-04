@@ -70,3 +70,6 @@ expect_used                = "warn"
 must_use_candidate         = "allow"
 missing_errors_doc         = "allow"
 missing_panics_doc         = "allow"
+
+print_stdout = "warn"
+dbg_macro = "warn"

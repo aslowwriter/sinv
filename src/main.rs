@@ -2,6 +2,7 @@ use frizbee::{Config, Matcher};
 use sphinx_inv::{
     SphinxInvError, SphinxInventoryReader, SphinxInventoryWriter, SphinxReference, WriteFormat,
 };
+use std::io::{ErrorKind, Write};
 use std::{fs::File, io::stdout};
 use tracing::subscriber::set_global_default;
 
@@ -16,6 +17,25 @@ use crate::{
 use clap::Parser;
 
 fn main() -> Result<(), SinvError> {
+    // not the most elegant of solutions, but we just want to exit
+    // cleanly if the pipe is closed prematurely since that's perfectly acceptable behavior so
+    // we have to do this little wrapper
+    // if anything else goes wrong we'll just exit in whatever way
+    // is appropriate
+
+    let res = inner_main();
+    if let Err(SinvError::IoError(ref e)) = res {
+        if e.kind() == ErrorKind::BrokenPipe {
+            Ok(())
+        } else {
+            res
+        }
+    } else {
+        res
+    }
+}
+
+fn inner_main() -> Result<(), SinvError> {
     let args = CliArgs::parse();
 
     let subscriber = tracing_subscriber::fmt()
@@ -88,16 +108,21 @@ fn main() -> Result<(), SinvError> {
                 // refenrenes so should always be some
                 #[allow(clippy::unwrap_used)]
                 let reference = references.get(m.index as usize).unwrap();
+
+                let stdout = stdout();
+                let mut stdout_handle = stdout.lock();
                 if suggest_args.sphinx_ref {
-                    println!(
+                    writeln!(
+                        stdout_handle,
                         "{}|{}|:{}:`{}`",
                         m.score, m.index, reference.sphinx_type, reference.name,
-                    );
+                    )?;
                 } else {
-                    println!(
+                    writeln!(
+                        stdout_handle,
                         "{}|{}|{}|{}",
                         m.score, m.index, reference.sphinx_type, reference.name,
-                    );
+                    )?;
                 }
             }
         }

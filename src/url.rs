@@ -1,4 +1,3 @@
-#![allow(clippy::unwrap_used, dead_code)]
 use std::path::{Path, PathBuf};
 
 use reqwest::Url;
@@ -39,12 +38,14 @@ impl Iterator for UrlPathIter {
         self.base_url.set_path(&path);
         self.remaining_path = p.parent().map(Path::to_path_buf);
 
-        Some(self.base_url.join("objects.inv").unwrap())
+        self.base_url.join("objects.inv").ok()
     }
 }
 
 #[cfg(test)]
 mod test {
+    // it's okay to use it for known good urls
+    #![allow(clippy::unwrap_used)]
     use reqwest::Url;
 
     use crate::url::UrlPathIter;
