@@ -1,4 +1,5 @@
 use clap::Args;
+use sphinx_inv::WriteFormat;
 
 use crate::cli::{sink::DataSink, source::DataSource};
 
@@ -9,9 +10,28 @@ pub struct WriteArgs {
     /// the destination where the data will be written to, can be stdout or a file.
     pub sink: Option<DataSink>,
 
+    /// what encoding should the output bit in?
+    #[arg(short, long)]
+    pub encoding: Option<OutputFormat>,
+
     /// overwrite any existing files at destination instead of erroring
     #[arg(short, long, action)]
     pub force: bool,
+}
+
+#[derive(Debug, Clone, PartialEq, clap::ValueEnum)]
+pub enum OutputFormat {
+    Plain,
+    Zlib,
+}
+
+impl From<OutputFormat> for WriteFormat {
+    fn from(value: OutputFormat) -> Self {
+        match value {
+            OutputFormat::Plain => WriteFormat::Plain,
+            OutputFormat::Zlib => WriteFormat::Zlib,
+        }
+    }
 }
 
 #[cfg(test)]
@@ -29,6 +49,7 @@ mod test {
             args.cmd,
             SubCommand::Write(WriteArgs {
                 source: Some(DataSource::Path(PathBuf::from("foo"))),
+                encoding: None,
                 sink: None,
                 force: false
             })
@@ -42,6 +63,7 @@ mod test {
             SubCommand::Write(WriteArgs {
                 source: Some(DataSource::Stdin),
                 sink: Some(DataSink::Stdout),
+                encoding: None,
                 force: false,
             })
         );

@@ -1,6 +1,6 @@
 use frizbee::{Config, Matcher};
 use sphinx_inv::{
-    PlainTextSphinxInventoryWriter, SphinxInvError, SphinxInventoryReader, SphinxReference,
+    SphinxInvError, SphinxInventoryReader, SphinxInventoryWriter, SphinxReference, WriteFormat,
 };
 use std::{fs::File, io::stdout};
 use tracing::subscriber::set_global_default;
@@ -41,24 +41,28 @@ fn main() -> Result<(), SinvError> {
 
     match args.cmd {
         cli::SubCommand::Write(write_args) => {
-            let mut writer = PlainTextSphinxInventoryWriter::from_header(header, 0, true);
+            let mut writer = SphinxInventoryWriter::from_header(header, 0, true);
             for reference in references {
                 writer.add_reference(reference);
             }
 
             let sink = write_args.sink.unwrap_or(DataSink::Stdout);
+            let write_format: WriteFormat = write_args
+                .encoding
+                .unwrap_or(cli::write::OutputFormat::Zlib)
+                .into();
             match sink {
                 DataSink::Stdout => {
                     let stdout = stdout();
                     let mut handler = stdout.lock();
-                    writer.finalize(&mut handler)?;
+                    writer.finalize(&mut handler, &write_format)?;
                 }
                 DataSink::Path(path_buf) => {
                     if path_buf.exists() && !write_args.force {
                         return Err(SinvError::FileExists(path_buf));
                     }
                     let mut f = File::create(path_buf)?;
-                    writer.finalize(&mut f)?;
+                    writer.finalize(&mut f, &write_format)?;
                 }
             }
         }
@@ -79,7 +83,7 @@ fn main() -> Result<(), SinvError> {
             }
 
             for m in matches {
-                // unwrap is allowed bc the searching should only index into the
+                // unwrap is safe bc the searching should only index into the
                 // refenrenes so should always be some
                 #[allow(clippy::unwrap_used)]
                 let reference = references.get(m.index as usize).unwrap();
