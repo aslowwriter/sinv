@@ -10,6 +10,9 @@ pub struct WriteArgs {
     /// the destination where the data will be written to, can be stdout or a file.
     pub sink: Option<DataSink>,
 
+    #[arg(short, long, action)]
+    pub minified: bool,
+
     /// what encoding should the output bit in?
     #[arg(short, long)]
     pub encoding: Option<OutputFormat>,
@@ -43,6 +46,20 @@ mod test {
     use crate::cli::{CliArgs, SubCommand, sink::DataSink, source::DataSource, write::WriteArgs};
 
     #[test]
+    fn test_args_write_single_file_plain_minified() {
+        let args = CliArgs::parse_from(["sinv", "write", "foo", "-m", "-e", "plain"]);
+        assert_eq!(
+            args.cmd,
+            SubCommand::Write(WriteArgs {
+                source: Some(DataSource::Path(PathBuf::from("foo"))),
+                encoding: Some(crate::cli::write::OutputFormat::Plain),
+                minified: true,
+                sink: None,
+                force: false
+            })
+        );
+    }
+    #[test]
     fn test_args_write_single_file() {
         let args = CliArgs::parse_from(["sinv", "write", "foo"]);
         assert_eq!(
@@ -50,6 +67,7 @@ mod test {
             SubCommand::Write(WriteArgs {
                 source: Some(DataSource::Path(PathBuf::from("foo"))),
                 encoding: None,
+                minified: false,
                 sink: None,
                 force: false
             })
@@ -63,6 +81,7 @@ mod test {
             SubCommand::Write(WriteArgs {
                 source: Some(DataSource::Stdin),
                 sink: Some(DataSink::Stdout),
+                minified: false,
                 encoding: None,
                 force: false,
             })

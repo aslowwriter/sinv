@@ -41,7 +41,7 @@ fn main() -> Result<(), SinvError> {
 
     match args.cmd {
         cli::SubCommand::Write(write_args) => {
-            let mut writer = SphinxInventoryWriter::from_header(header, 0, true);
+            let mut writer = SphinxInventoryWriter::from_header(header, 0);
             for reference in references {
                 writer.add_reference(reference);
             }
@@ -51,18 +51,19 @@ fn main() -> Result<(), SinvError> {
                 .encoding
                 .unwrap_or(cli::write::OutputFormat::Zlib)
                 .into();
+
             match sink {
                 DataSink::Stdout => {
                     let stdout = stdout();
                     let mut handler = stdout.lock();
-                    writer.finalize(&mut handler, &write_format)?;
+                    writer.finalize(&mut handler, &write_format, write_args.minified)?;
                 }
                 DataSink::Path(path_buf) => {
                     if path_buf.exists() && !write_args.force {
                         return Err(SinvError::FileExists(path_buf));
                     }
                     let mut f = File::create(path_buf)?;
-                    writer.finalize(&mut f, &write_format)?;
+                    writer.finalize(&mut f, &write_format, write_args.minified)?;
                 }
             }
         }
