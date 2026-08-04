@@ -16,6 +16,9 @@ pub struct SuggestArgs {
     #[arg(short, long)]
     pub threshold: Option<u16>,
 
+    #[arg(long)]
+    pub sphinx_ref: bool,
+
     /// The maximum number of items to return, if unset, all will be returned.
     #[arg(short, long)]
     pub max_items: Option<usize>,
@@ -39,6 +42,7 @@ mod test {
                 source: DataSource::Path(PathBuf::from("bar")),
                 search_term: String::from("foo"),
                 threshold: Some(50),
+                sphinx_ref: false,
                 max_items: Some(3)
             })
         );
@@ -51,6 +55,7 @@ mod test {
             SubCommand::Suggest(SuggestArgs {
                 source: DataSource::Path(PathBuf::from("bar")),
                 search_term: String::from("foo"),
+                sphinx_ref: false,
                 threshold: None,
                 max_items: None
             })
@@ -62,8 +67,11 @@ mod test {
         assert_eq!(
             args.cmd,
             SubCommand::Suggest(SuggestArgs {
+                // known good url so unwrap is safe
+                #[allow(clippy::unwrap_used)]
                 source: DataSource::Url(Url::parse("https://example.org").unwrap()),
                 search_term: String::from("foo"),
+                sphinx_ref: false,
                 threshold: None,
                 max_items: None
             })
@@ -77,6 +85,7 @@ mod test {
             SubCommand::Suggest(SuggestArgs {
                 source: DataSource::Stdin,
                 search_term: String::from("foo"),
+                sphinx_ref: false,
                 threshold: None,
                 max_items: None
             })

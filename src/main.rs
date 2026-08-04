@@ -88,7 +88,17 @@ fn main() -> Result<(), SinvError> {
                 // refenrenes so should always be some
                 #[allow(clippy::unwrap_used)]
                 let reference = references.get(m.index as usize).unwrap();
-                println!("{}:{}:{}", m.score, reference.name, reference.sphinx_type);
+                if suggest_args.sphinx_ref {
+                    println!(
+                        "{}|{}|:{}:`{}`",
+                        m.score, m.index, reference.sphinx_type, reference.name,
+                    );
+                } else {
+                    println!(
+                        "{}|{}|{}|{}",
+                        m.score, m.index, reference.sphinx_type, reference.name,
+                    );
+                }
             }
         }
         cli::SubCommand::Check(check_args) => {
