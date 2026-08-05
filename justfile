@@ -53,7 +53,7 @@ newest:
     cargo +nightly update --breaking -Z unstable-options
 
 flamegraph:
-    cargo flamegraph --profile bench 
+    cargo flamegraph --profile bench
 
 base:
     cargo bench --profile bench -- --save-baseline base
@@ -77,3 +77,25 @@ ci:
     just lint
     just check
     just test
+
+download-lkd-objects:
+    cargo run -- write https://docs.kernel.org/objects.inv lkd.inv
+
+# for if our command is broken somehow
+download-lkd-objects-curl:
+    curl -Lo lkd.inv https://docs.kernel.org/objects.inv
+
+compile-benches:
+    cargo build --release
+
+run-benchmark-suggest: compile-benches
+    hyperfine -N "sphobjinv suggest lkd.inv watchdog --all" -n "sphobjinv suggest (python)" --reference "target/release/sinv suggest watchdog lkd.inv" --reference-name "sinv suggest (rust)"  --export-json suggest-timing.json --warmup 50 --min-runs 100 --time-unit millisecond
+
+run-benchmark-write: compile-benches
+    hyperfine -N "sphobjinv co plain lkd.inv lkd.txt -o" -n "sphobjinv write (python)" --reference "target/release/sinv write lkd.inv lkd.txt -f" --reference-name "sinv write (rust)"  --export-json write-timing.json --warmup 50 --min-runs 100 --time-unit millisecond
+
+render-comparisons:
+    uv run benchmarks/render.py write-timing.json write-comparison.webp "Writing the linux kernel inventory file to disk (lower is better)"
+    uv run benchmarks/render.py suggest.json suggest-comparison.webp "finind matches for 'watchdog' in the linux kernel inventory file (lower is better)"
+
+benchmark: run-benchmark-suggest run-benchmark-write render-comparisons
