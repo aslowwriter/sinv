@@ -24,6 +24,7 @@ pub struct CliArgs {
 pub enum SubCommand {
     /// Write the data from the input file to the output file
     Write(WriteArgs),
+    /// Search the inventory for close matches to `<search_term>`
     Suggest(SuggestArgs),
 }
 

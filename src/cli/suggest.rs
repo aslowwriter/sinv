@@ -16,9 +16,10 @@ pub struct SuggestArgs {
     #[arg(short, long)]
     pub threshold: Option<u16>,
 
-    #[arg(long)]
+    #[arg(short, long)]
     pub sphinx_ref: bool,
 
+    /// show only the matches and not the scoring or index
     #[arg(short, long)]
     pub only_matches: bool,
 
