@@ -109,18 +109,35 @@ fn inner_main() -> Result<(), SinvError> {
 
                 let stdout = stdout();
                 let mut stdout_handle = stdout.lock();
-                if suggest_args.sphinx_ref {
-                    writeln!(
-                        stdout_handle,
-                        "{}|{}|:{}:`{}`",
-                        m.score, m.index, reference.sphinx_type, reference.name,
-                    )?;
-                } else {
-                    writeln!(
-                        stdout_handle,
-                        "{}|{}|{}|{}",
-                        m.score, m.index, reference.sphinx_type, reference.name,
-                    )?;
+                match (suggest_args.sphinx_ref, suggest_args.only_matches) {
+                    (true, true) => {
+                        writeln!(
+                            stdout_handle,
+                            ":{}:`{}`",
+                            reference.sphinx_type, reference.name,
+                        )?;
+                    }
+                    (true, false) => {
+                        writeln!(
+                            stdout_handle,
+                            "{}|{}|:{}:`{}`",
+                            m.score, m.index, reference.sphinx_type, reference.name,
+                        )?;
+                    }
+                    (false, true) => {
+                        writeln!(
+                            stdout_handle,
+                            "{}|{}`",
+                            reference.sphinx_type, reference.name,
+                        )?;
+                    }
+                    (false, false) => {
+                        writeln!(
+                            stdout_handle,
+                            "{}|{}|{}|{}",
+                            m.score, m.index, reference.sphinx_type, reference.name,
+                        )?;
+                    }
                 }
             }
         }

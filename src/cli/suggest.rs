@@ -19,6 +19,9 @@ pub struct SuggestArgs {
     #[arg(long)]
     pub sphinx_ref: bool,
 
+    #[arg(short, long)]
+    pub only_matches: bool,
+
     /// The maximum number of items to return, if unset, all will be returned.
     #[arg(short, long)]
     pub max_items: Option<usize>,
