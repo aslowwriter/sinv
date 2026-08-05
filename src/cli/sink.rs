@@ -10,14 +10,10 @@ pub enum DataSink {
 
 #[derive(Debug, thiserror::Error)]
 pub enum StdoutError {
-    // #[error("stdin read from more than once")]
-    // StdInRepeatedUse,
     #[error(transparent)]
     StdOut(#[from] io::Error),
     #[error("Urls are not allowed as sinks: {0}")]
     UrlAsSink(String),
-    // #[error("unable to parse from_str: {0}")]
-    // FromStr(String),
 }
 
 impl FromStr for DataSink {

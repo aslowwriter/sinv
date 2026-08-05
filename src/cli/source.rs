@@ -15,12 +15,8 @@ pub enum DataSource {
 
 #[derive(Debug, thiserror::Error)]
 pub enum StdinError {
-    // #[error("stdin read from more than once")]
-    // StdInRepeatedUse,
     #[error(transparent)]
     StdIn(#[from] std::io::Error),
-    // #[error("unable to parse from_str: {0}")]
-    // FromStr(String),
 }
 
 impl FromStr for DataSource {
