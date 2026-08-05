@@ -1,10 +1,9 @@
 use frizbee::{Config, Matcher};
-use sphinx_inv::{
-    SphinxInvError, SphinxInventoryReader, SphinxInventoryWriter, SphinxReference, WriteFormat,
-};
+use sphinx_inv::{SphinxInvError, SphinxInventoryReader, SphinxInventoryWriter, WriteFormat};
 use std::io::{ErrorKind, Write};
 use std::{fs::File, io::stdout};
 use tracing::subscriber::set_global_default;
+use tracing::warn;
 
 mod cli;
 mod error;
@@ -47,17 +46,16 @@ fn inner_main() -> Result<(), SinvError> {
     let reader = args.cmd.get_source().into_reader()?;
     let inventory_reader = SphinxInventoryReader::from_reader(reader)?;
     let header = inventory_reader.header().clone();
-    let references: Vec<_> = inventory_reader
-        .collect::<Vec<Result<SphinxReference, SphinxInvError>>>()
-        .into_iter()
-        .filter_map(|r| match r {
-            Ok(reference) => Some(reference),
-            Err(e) => {
-                eprintln!("failed to parse line: {e}");
-                None
+    let mut references = Vec::new();
+    for reference in inventory_reader {
+        match reference {
+            Ok(r) => references.push(r),
+            Err(SphinxInvError::ParseError(e)) => {
+                warn!("{}", e);
             }
-        })
-        .collect();
+            Err(e) => Err(e)?,
+        }
+    }
 
     match args.cmd {
         cli::SubCommand::Write(write_args) => {
