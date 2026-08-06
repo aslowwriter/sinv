@@ -1,14 +1,21 @@
 use frizbee::{Config, Matcher};
-use sphinx_inv::{SphinxInvError, SphinxInventoryReader, SphinxInventoryWriter, WriteFormat};
+use sphinx_inv::{
+    InventoryHeader, SphinxInvError, SphinxInventoryReader, SphinxInventoryWriter, SphinxReference,
+    WriteFormat,
+};
 use std::io::{ErrorKind, Write};
 use std::{fs::File, io::stdout};
 use tracing::subscriber::set_global_default;
 use tracing::warn;
 
+use owo_colors::{OwoColorize, Stream};
+
 mod cli;
 mod error;
 mod url;
 
+use crate::cli::suggest::SuggestArgs;
+use crate::cli::write::WriteArgs;
 use crate::{
     cli::{CliArgs, sink::DataSink},
     error::SinvError,
@@ -34,15 +41,9 @@ fn main() -> Result<(), SinvError> {
     }
 }
 
-fn inner_main() -> Result<(), SinvError> {
-    let args = CliArgs::parse();
-
-    let subscriber = tracing_subscriber::fmt()
-        .with_max_level(args.verbose.tracing_level_filter())
-        .finish();
-
-    set_global_default(subscriber)?;
-
+fn read_refs_from_source(
+    args: &CliArgs,
+) -> Result<(InventoryHeader, Vec<SphinxReference>), SinvError> {
     let reader = args.cmd.get_source().into_reader()?;
     let inventory_reader = SphinxInventoryReader::from_reader(reader)?;
     let header = inventory_reader.header().clone();
@@ -56,91 +57,145 @@ fn inner_main() -> Result<(), SinvError> {
             Err(e) => Err(e)?,
         }
     }
+    Ok((header, references))
+}
+
+fn handle_write(
+    write_args: WriteArgs,
+    header: InventoryHeader,
+    references: Vec<SphinxReference>,
+) -> Result<(), SinvError> {
+    let mut writer = SphinxInventoryWriter::from_header(header, 0);
+    for reference in references {
+        writer.add_reference(reference);
+    }
+
+    let sink = write_args.sink.unwrap_or(DataSink::Stdout);
+    let write_format: WriteFormat = write_args
+        .encoding
+        .unwrap_or(cli::write::OutputFormat::Zlib)
+        .into();
+
+    match sink {
+        DataSink::Stdout => {
+            let stdout = stdout();
+            let mut handler = stdout.lock();
+            writer.finalize(&mut handler, &write_format, write_args.minified)?;
+        }
+        DataSink::Path(path_buf) => {
+            if path_buf.exists() && !write_args.force {
+                return Err(SinvError::FileExists(path_buf));
+            }
+            let mut f = File::create(path_buf)?;
+            writer.finalize(&mut f, &write_format, write_args.minified)?;
+        }
+    }
+    Ok(())
+}
+
+fn handle_suggest(
+    suggest_args: SuggestArgs,
+    references: &[SphinxReference],
+) -> Result<(), SinvError> {
+    let names: Vec<_> = references.iter().map(|r| r.name.clone()).collect();
+    let matcher_config = Config::default().sort(frizbee::SortStrategy::ScoreThenIndexDesc);
+
+    let mut searcher = Matcher::new(suggest_args.search_term, &matcher_config);
+
+    let mut matches = searcher.match_list_parallel(&names, 8);
+
+    if let Some(thresh) = suggest_args.threshold {
+        matches.retain(|m| m.score >= thresh);
+    }
+
+    if let Some(max_items) = suggest_args.max_items {
+        matches = matches.into_iter().take(max_items).collect();
+    }
+
+    for m in matches {
+        // unwrap is safe bc the searching should only index into the
+        // refenrenes so should always be some
+        #[allow(clippy::unwrap_used)]
+        let reference = references.get(m.index as usize).unwrap();
+
+        let stdout = stdout();
+        let mut stdout_handle = stdout.lock();
+        match (suggest_args.sphinx_ref, suggest_args.only_matches) {
+            (true, true) => {
+                writeln!(
+                    stdout_handle,
+                    ":{}:`{}`",
+                    reference
+                        .sphinx_type
+                        .if_supports_color(Stream::Stdout, |text| text.cyan()),
+                    reference
+                        .name
+                        .if_supports_color(Stream::Stdout, |text| text.green()),
+                )?;
+            }
+            (true, false) => {
+                writeln!(
+                    stdout_handle,
+                    "{}|{}|:{}:`{}`",
+                    m.score
+                        .if_supports_color(Stream::Stdout, |text| text.dimmed()),
+                    m.index
+                        .if_supports_color(Stream::Stdout, |text| text.dimmed()),
+                    reference
+                        .sphinx_type
+                        .if_supports_color(Stream::Stdout, |text| text.cyan()),
+                    reference
+                        .name
+                        .if_supports_color(Stream::Stdout, |text| text.green()),
+                )?;
+            }
+            (false, true) => {
+                writeln!(
+                    stdout_handle,
+                    "{}|{}`",
+                    reference
+                        .sphinx_type
+                        .if_supports_color(Stream::Stdout, |text| text.cyan()),
+                    reference
+                        .name
+                        .if_supports_color(Stream::Stdout, |text| text.green()),
+                )?;
+            }
+            (false, false) => {
+                writeln!(
+                    stdout_handle,
+                    "{}|{}|{}|{}",
+                    m.score
+                        .if_supports_color(Stream::Stdout, |text| text.dimmed()),
+                    m.index
+                        .if_supports_color(Stream::Stdout, |text| text.dimmed()),
+                    reference
+                        .sphinx_type
+                        .if_supports_color(Stream::Stdout, |text| text.cyan()),
+                    reference
+                        .name
+                        .if_supports_color(Stream::Stdout, |text| text.green()),
+                )?;
+            }
+        }
+    }
+    Ok(())
+}
+
+fn inner_main() -> Result<(), SinvError> {
+    let args = CliArgs::parse();
+
+    let subscriber = tracing_subscriber::fmt()
+        .with_max_level(args.verbose.tracing_level_filter())
+        .finish();
+
+    set_global_default(subscriber)?;
+
+    let (header, references) = read_refs_from_source(&args)?;
 
     match args.cmd {
-        cli::SubCommand::Write(write_args) => {
-            let mut writer = SphinxInventoryWriter::from_header(header, 0);
-            for reference in references {
-                writer.add_reference(reference);
-            }
-
-            let sink = write_args.sink.unwrap_or(DataSink::Stdout);
-            let write_format: WriteFormat = write_args
-                .encoding
-                .unwrap_or(cli::write::OutputFormat::Zlib)
-                .into();
-
-            match sink {
-                DataSink::Stdout => {
-                    let stdout = stdout();
-                    let mut handler = stdout.lock();
-                    writer.finalize(&mut handler, &write_format, write_args.minified)?;
-                }
-                DataSink::Path(path_buf) => {
-                    if path_buf.exists() && !write_args.force {
-                        return Err(SinvError::FileExists(path_buf));
-                    }
-                    let mut f = File::create(path_buf)?;
-                    writer.finalize(&mut f, &write_format, write_args.minified)?;
-                }
-            }
-        }
-        cli::SubCommand::Suggest(suggest_args) => {
-            let names: Vec<_> = references.iter().map(|r| r.name.clone()).collect();
-            let matcher_config = Config::default().sort(frizbee::SortStrategy::ScoreThenIndexDesc);
-
-            let mut searcher = Matcher::new(suggest_args.search_term, &matcher_config);
-
-            let mut matches = searcher.match_list_parallel(&names, 8);
-
-            if let Some(thresh) = suggest_args.threshold {
-                matches.retain(|m| m.score >= thresh);
-            }
-
-            if let Some(max_items) = suggest_args.max_items {
-                matches = matches.into_iter().take(max_items).collect();
-            }
-
-            for m in matches {
-                // unwrap is safe bc the searching should only index into the
-                // refenrenes so should always be some
-                #[allow(clippy::unwrap_used)]
-                let reference = references.get(m.index as usize).unwrap();
-
-                let stdout = stdout();
-                let mut stdout_handle = stdout.lock();
-                match (suggest_args.sphinx_ref, suggest_args.only_matches) {
-                    (true, true) => {
-                        writeln!(
-                            stdout_handle,
-                            ":{}:`{}`",
-                            reference.sphinx_type, reference.name,
-                        )?;
-                    }
-                    (true, false) => {
-                        writeln!(
-                            stdout_handle,
-                            "{}|{}|:{}:`{}`",
-                            m.score, m.index, reference.sphinx_type, reference.name,
-                        )?;
-                    }
-                    (false, true) => {
-                        writeln!(
-                            stdout_handle,
-                            "{}|{}`",
-                            reference.sphinx_type, reference.name,
-                        )?;
-                    }
-                    (false, false) => {
-                        writeln!(
-                            stdout_handle,
-                            "{}|{}|{}|{}",
-                            m.score, m.index, reference.sphinx_type, reference.name,
-                        )?;
-                    }
-                }
-            }
-        }
+        cli::SubCommand::Write(write_args) => handle_write(write_args, header, references)?,
+        cli::SubCommand::Suggest(suggest_args) => handle_suggest(suggest_args, &references)?,
     }
 
     Ok(())

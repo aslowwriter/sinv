@@ -3,7 +3,7 @@ pub(crate) mod source;
 pub(crate) mod suggest;
 pub(crate) mod write;
 
-use clap::{Parser, Subcommand};
+use clap::{Parser, Subcommand, ValueEnum};
 use clap_verbosity_flag::Verbosity;
 
 use crate::cli::source::DataSource;
@@ -18,6 +18,9 @@ pub struct CliArgs {
 
     #[command(flatten)]
     pub verbose: Verbosity,
+
+    #[arg(long, short)]
+    pub color: Option<ColorUse>,
 }
 
 #[derive(Debug, Subcommand, Clone, PartialEq)]
@@ -26,6 +29,14 @@ pub enum SubCommand {
     Write(WriteArgs),
     /// Search the inventory for close matches to `<search_term>`
     Suggest(SuggestArgs),
+}
+
+#[derive(Debug, Clone, Default, PartialEq, ValueEnum)]
+pub(crate) enum ColorUse {
+    Never,
+    Always,
+    #[default]
+    Auto,
 }
 
 impl SubCommand {
