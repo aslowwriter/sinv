@@ -97,7 +97,7 @@ fn handle_suggest(
     suggest_args: SuggestArgs,
     references: &[SphinxReference],
 ) -> Result<(), SinvError> {
-    let names: Vec<_> = references.iter().map(|r| r.name.clone()).collect();
+    let names: Vec<_> = references.iter().map(|r| &r.name).collect();
     let matcher_config = Config::default().sort(frizbee::SortStrategy::ScoreThenIndexDesc);
 
     let mut searcher = Matcher::new(suggest_args.search_term, &matcher_config);
@@ -109,19 +109,16 @@ fn handle_suggest(
     }
 
     if let Some(max_items) = suggest_args.max_items {
-        matches = matches.into_iter().take(max_items).collect();
+        matches.truncate(max_items);
     }
+    let stdout = stdout();
+    let mut stdout_handle = stdout.lock();
 
-    for m in matches {
-        // unwrap is safe bc the searching should only index into the
-        // refenrenes so should always be some
-        #[allow(clippy::unwrap_used)]
-        let reference = references.get(m.index as usize).unwrap();
+    match (suggest_args.sphinx_ref, suggest_args.only_matches) {
+        (true, true) => {
+            for m in matches {
+                let reference = &references[m.index as usize];
 
-        let stdout = stdout();
-        let mut stdout_handle = stdout.lock();
-        match (suggest_args.sphinx_ref, suggest_args.only_matches) {
-            (true, true) => {
                 writeln!(
                     stdout_handle,
                     ":{}:`{}`",
@@ -133,7 +130,12 @@ fn handle_suggest(
                         .if_supports_color(Stream::Stdout, |text| text.green()),
                 )?;
             }
-            (true, false) => {
+            Ok(())
+        }
+
+        (true, false) => {
+            for m in matches {
+                let reference = &references[m.index as usize];
                 writeln!(
                     stdout_handle,
                     "{}|{}|:{}:`{}`",
@@ -149,7 +151,11 @@ fn handle_suggest(
                         .if_supports_color(Stream::Stdout, |text| text.green()),
                 )?;
             }
-            (false, true) => {
+            Ok(())
+        }
+        (false, true) => {
+            for m in matches {
+                let reference = &references[m.index as usize];
                 writeln!(
                     stdout_handle,
                     "{}|{}`",
@@ -161,7 +167,11 @@ fn handle_suggest(
                         .if_supports_color(Stream::Stdout, |text| text.green()),
                 )?;
             }
-            (false, false) => {
+            Ok(())
+        }
+        (false, false) => {
+            for m in matches {
+                let reference = &references[m.index as usize];
                 writeln!(
                     stdout_handle,
                     "{}|{}|{}|{}",
@@ -177,9 +187,9 @@ fn handle_suggest(
                         .if_supports_color(Stream::Stdout, |text| text.green()),
                 )?;
             }
+            Ok(())
         }
     }
-    Ok(())
 }
 
 fn inner_main() -> Result<(), SinvError> {
