@@ -30,6 +30,7 @@ sphinx_inv = { version = "0.3.0", path = "../sphinx_inv" }
 reqwest = { version = "0.13.4", features = ["blocking"] }
 url = "2.5.8"
 frizbee = "0.11.0"
+owo-colors = { version = "4.3.0", features = ["supports-colors", "alloc"] }
 
 [dev-dependencies]
 pretty_assertions = "1.4.1"

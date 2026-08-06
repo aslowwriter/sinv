@@ -46,6 +46,7 @@ mod test {
                 source: DataSource::Path(PathBuf::from("bar")),
                 search_term: String::from("foo"),
                 threshold: Some(50),
+                only_matches: false,
                 sphinx_ref: false,
                 max_items: Some(3)
             })
@@ -60,6 +61,7 @@ mod test {
                 source: DataSource::Path(PathBuf::from("bar")),
                 search_term: String::from("foo"),
                 sphinx_ref: false,
+                only_matches: false,
                 threshold: None,
                 max_items: None
             })
@@ -77,6 +79,7 @@ mod test {
                 search_term: String::from("foo"),
                 sphinx_ref: false,
                 threshold: None,
+                only_matches: false,
                 max_items: None
             })
         );
@@ -90,6 +93,7 @@ mod test {
                 source: DataSource::Stdin,
                 search_term: String::from("foo"),
                 sphinx_ref: false,
+                only_matches: false,
                 threshold: None,
                 max_items: None
             })
