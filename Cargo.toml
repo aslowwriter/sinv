@@ -9,7 +9,6 @@ readme       = "README.md"
 license      = "MIT"
 
 
-documentation = "https://docs.rs/sinv"
 repository    = "https://github.com/aslowwriter/sinv"
 
 
@@ -26,7 +25,8 @@ tracing-error       = "0"
 clap                = { version = "4", features = ["derive", "unicode", "cargo"] }
 clap-verbosity-flag = { version = "3.0.4", features = ["tracing"] }
 
-sphinx_inv = { version = "0.3.0", path = "../sphinx_inv" }
+# sphinx_inv = {  path = "../sphinx_inv" }
+sphinx_inv = { version = "0.4.0" }
 reqwest = { version = "0.13.4", features = ["blocking"] }
 url = "2.5.8"
 frizbee = "0.11.0"
