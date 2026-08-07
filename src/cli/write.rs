@@ -10,6 +10,8 @@ pub struct WriteArgs {
     /// the destination where the data will be written to, can be stdout or a file.
     pub sink: Option<DataSink>,
 
+    /// output using's Sphinx shorthand for $ and - meaning "display name" by default, this is
+    /// disabled
     #[arg(short, long, action)]
     pub minified: bool,
 
