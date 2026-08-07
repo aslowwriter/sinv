@@ -47,7 +47,7 @@ fn read_refs_from_source(
     let reader = args.cmd.get_source().into_reader()?;
     let inventory_reader = SphinxInventoryReader::from_reader(reader)?;
     let header = inventory_reader.header().clone();
-    let mut references = Vec::new();
+    let mut references = Vec::with_capacity(80000);
     for reference in inventory_reader {
         match reference {
             Ok(r) => references.push(r),
@@ -80,14 +80,22 @@ fn handle_write(
         DataSink::Stdout => {
             let stdout = stdout();
             let mut handler = stdout.lock();
-            writer.finalize(&mut handler, &write_format, write_args.minified)?;
+            writer.finalize(
+                &mut handler,
+                &write_format,
+                write_args.minified || write_format == WriteFormat::Zlib,
+            )?;
         }
         DataSink::Path(path_buf) => {
             if path_buf.exists() && !write_args.force {
                 return Err(SinvError::FileExists(path_buf));
             }
             let mut f = File::create(path_buf)?;
-            writer.finalize(&mut f, &write_format, write_args.minified)?;
+            writer.finalize(
+                &mut f,
+                &write_format,
+                write_args.minified || write_format == WriteFormat::Zlib,
+            )?;
         }
     }
     Ok(())
