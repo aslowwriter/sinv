@@ -1328,7 +1328,9 @@ dependencies = [
 
 [[package]]
 name = "sphinx_inv"
-version = "0.3.0"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3c69c15b448fb04cdb587bdc3b6fac1aa6db41a4b9bd9e19c0e9e3f5d59824cf"
 dependencies = [
  "flate2",
  "thiserror",
