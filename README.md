@@ -14,8 +14,20 @@ A CLI toolkit for handling Sphinx inventory files. It is modeled after [sphobjin
 
 ## Installation
 
+You can install the binary simply form PyPi using your favourite method:
 
-Currently it is only installable via cargo to build from source:
+```
+uv tool install sinv
+```
+
+If you prefer you can also install it from crates.io:
+
+
+```
+cargo install sinv
+```
+
+If you wish you can also of course build it from source:
 
 ```
 cargo install --git https://github.com/aslowwriter/sinv
