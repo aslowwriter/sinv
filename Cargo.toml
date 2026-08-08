@@ -4,12 +4,12 @@ version      = "0.1.0"
 authors      = ["Sam Vente <savente93@proton.me>"]
 edition      = "2024"
 rust-version = "1.85"
-description  = "A CLI toolkit for inspecting Sphinx object inventories"
+description  = "A CLI toolkit for handling Sphinx inventory files.A CLI toolkit for inspecting Sphinx object inventories"
 readme       = "README.md"
 license      = "MIT"
 
 
-repository    = "https://github.com/aslowwriter/sinv"
+repository = "https://github.com/aslowwriter/sinv"
 
 
 [[bin]]
@@ -27,9 +27,9 @@ clap-verbosity-flag = { version = "3.0.4", features = ["tracing"] }
 
 # sphinx_inv = {  path = "../sphinx_inv" }
 sphinx_inv = { version = "0.4.0" }
-reqwest = { version = "0.13.4", features = ["blocking"] }
-url = "2.5.8"
-frizbee = "0.11.0"
+reqwest    = { version = "0.13.4", features = ["blocking"] }
+url        = "2.5.8"
+frizbee    = "0.11.0"
 owo-colors = { version = "4.3.0", features = ["supports-colors", "alloc"] }
 
 [dev-dependencies]
@@ -73,4 +73,4 @@ missing_errors_doc         = "allow"
 missing_panics_doc         = "allow"
 
 print_stdout = "warn"
-dbg_macro = "warn"
+dbg_macro    = "warn"
