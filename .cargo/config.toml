@@ -1,4 +1,0 @@
-[build]
-# --no-rosegment is for use in flamegraph and has no other downsides as far as I know
-rustflags = ["-Ctarget-cpu=native", "-Clink-arg=-Wl,--no-rosegment"]
-
