@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   # ── Python: build wheels ────────────────────────────────────────────────────
@@ -22,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Install uv
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v9.0.0
       - name: Install Maturin
         run: uv tool install maturin
       - name: Build wheels
@@ -101,7 +102,7 @@ jobs:
         with:
           subject-path: 'wheels-*/*'
       - name: Install uv
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v9.0.0
       - name: Publish to PyPI
         if: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
         # `maturin upload` is deprecated (PyO3/maturin#2334); use `uv publish`.
