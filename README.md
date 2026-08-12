@@ -33,9 +33,6 @@ If you wish you can also of course build it from source:
 ```
 cargo install --git https://github.com/aslowwriter/sinv
 ```
-
-though I am also planning more distribution channels like crates.io, conda-forge and possibly pypi.
-
 ## Usage
 
 Currently `sinv` has two subcommands:
