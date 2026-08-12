@@ -1,8 +1,9 @@
 # sinv
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![codecov](https://codecov.io/gh/aslowwriter/sinv/branch/main/graph/badge.svg)](https://codecov.io/gh/aslowwriter/sinv)
 [![crates.io](https://img.shields.io/crates/v/sinv)](https://crates.io/crates/sinv)
+![PyPI Version](https://img.shields.io/pypi/v/sinv)
+
 
 
 A CLI toolkit for handling Sphinx inventory files. It is modeled after [sphobjinv](https://sphobjinv.readthedocs.io/en/stable/) but has several improvements over it:
