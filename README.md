@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![crates.io](https://img.shields.io/crates/v/sinv)](https://crates.io/crates/sinv)
-![PyPI Version](https://img.shields.io/pypi/v/sinv)
+[![PyPI Version](https://img.shields.io/pypi/v/sinv)](https://pypi.org/project/sinv/)
 
 
 
