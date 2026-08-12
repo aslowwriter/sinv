@@ -4,7 +4,7 @@ version      = "0.1.0"
 authors      = ["Sam Vente <savente93@proton.me>"]
 edition      = "2024"
 rust-version = "1.85"
-description  = "A CLI toolkit for handling Sphinx inventory files.A CLI toolkit for inspecting Sphinx object inventories"
+description  = "A CLI toolkit for handling Sphinx inventory files."
 readme       = "README.md"
 license      = "MIT"
 
